@@ -1,0 +1,43 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int main()
+{
+    char so[15], ou[15], ch;
+    FILE *fp1, *fp2;
+
+    printf("Enter the source file name");
+    scanf("%s", so);
+
+    printf("Enter the output file name");
+    scanf("%s", ou);
+
+    fp1 = fopen(so, "r");
+
+    if (fp1 == NULL)
+    {
+        printf("Unable to open the file");
+        exit(0);
+    }
+
+    fp2 = fopen(ou, "w");
+
+    if (fp2 == NULL)
+    {
+        printf("Unable to open");
+        exit(0);
+    }
+
+    ch = fgetc(fp1);
+
+    while (ch != EOF)
+    {
+        fputc(ch, fp2);
+        ch = fgetc(fp1);
+    }
+
+    printf("The contents are copied");
+
+    fclose(fp1);
+    fclose(fp2);
+}
