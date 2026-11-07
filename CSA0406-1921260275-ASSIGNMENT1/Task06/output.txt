@@ -1,0 +1,3 @@
+buffer    1 bytes: 10001 read() calls
+buffer  512 bytes:    21 read() calls
+buffer 4096 bytes:     4 read() calls
