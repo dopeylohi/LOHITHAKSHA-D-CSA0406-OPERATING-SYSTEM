@@ -1,0 +1,7 @@
+shell: running job 1
+42
+job 1 exit status 0
+shell: running job 2
+job 1 exit status 0
+shell: running job 2
+job 2 exit status 3
