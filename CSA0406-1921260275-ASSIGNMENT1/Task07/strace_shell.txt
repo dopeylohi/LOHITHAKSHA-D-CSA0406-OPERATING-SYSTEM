@@ -1,26 +1,26 @@
-execve("./shell", ["./shell"], 0x7ffe42a1bb48 /* 28 vars */) = 0
+execve("./shell", ["./shell"], 0x7ffc77a51ce8 /* 28 vars */) = 0
 write(1, "shell: running job 1\n", 21)  = 21
-clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 3249 attached
-, child_tidptr=0x710864209a10) = 3249
-[pid  3248] wait4(3249 <unfinished ...>
-[pid  3249] execve("/usr/local/sbin/expr", ["expr", "6", "*", "7"], 0x7ffdba5af088 /* 28 vars */) = -1 ENOENT (No such file or directory)
-[pid  3249] execve("/usr/local/bin/expr", ["expr", "6", "*", "7"], 0x7ffdba5af088 /* 28 vars */) = -1 ENOENT (No such file or directory)
-[pid  3249] execve("/usr/sbin/expr", ["expr", "6", "*", "7"], 0x7ffdba5af088 /* 28 vars */) = -1 ENOENT (No such file or directory)
-[pid  3249] execve("/usr/bin/expr", ["expr", "6", "*", "7"], 0x7ffdba5af088 /* 28 vars */) = 0
-[pid  3249] write(1, "42\n", 3)         = 3
-[pid  3249] exit_group(0)               = ?
-[pid  3249] +++ exited with 0 +++
-<... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 3249
---- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3249, si_uid=1000, si_status=0, si_utime=0, si_stime=1 /* 0.01 s */} ---
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 19527 attached
+, child_tidptr=0x77831adb0a10) = 19527
+[pid 19526] wait4(19527 <unfinished ...>
+[pid 19527] execve("/usr/local/sbin/expr", ["expr", "6", "*", "7"], 0x7ffea43f73a8 /* 28 vars */) = -1 ENOENT (No such file or directory)
+[pid 19527] execve("/usr/local/bin/expr", ["expr", "6", "*", "7"], 0x7ffea43f73a8 /* 28 vars */) = -1 ENOENT (No such file or directory)
+[pid 19527] execve("/usr/sbin/expr", ["expr", "6", "*", "7"], 0x7ffea43f73a8 /* 28 vars */) = -1 ENOENT (No such file or directory)
+[pid 19527] execve("/usr/bin/expr", ["expr", "6", "*", "7"], 0x7ffea43f73a8 /* 28 vars */) = 0
+[pid 19527] write(1, "42\n", 3)         = 3
+[pid 19527] exit_group(0)               = ?
+[pid 19527] +++ exited with 0 +++
+<... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 19527
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=19527, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
 write(1, "job 1 exit status 0\n", 20)   = 20
 write(1, "shell: running job 2\n", 21)  = 21
-clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 3250 attached
-, child_tidptr=0x710864209a10) = 3250
-[pid  3248] wait4(3250 <unfinished ...>
-[pid  3250] exit_group(3)               = ?
-[pid  3250] +++ exited with 3 +++
-<... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 3}], 0, NULL) = 3250
---- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3250, si_uid=1000, si_status=3, si_utime=0, si_stime=0} ---
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLDstrace: Process 19528 attached
+, child_tidptr=0x77831adb0a10) = 19528
+[pid 19526] wait4(19528 <unfinished ...>
+[pid 19528] exit_group(3)               = ?
+[pid 19528] +++ exited with 3 +++
+<... wait4 resumed>, [{WIFEXITED(s) && WEXITSTATUS(s) == 3}], 0, NULL) = 19528
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=19528, si_uid=1000, si_status=3, si_utime=0, si_stime=0} ---
 write(1, "job 2 exit status 3\n", 20)   = 20
 exit_group(0)                           = ?
 +++ exited with 0 +++
