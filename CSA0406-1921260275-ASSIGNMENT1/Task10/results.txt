@@ -1,0 +1,15 @@
+== run 1
+1000 x fork() only        : 0.3252 s
+1000 x pthread_create     : 0.0998 s
+1000 x fork() + exec()    : 0.6558 s
+1000 x posix_spawn()      : 0.5343 s
+== run 2
+1000 x fork() only        : 0.2539 s
+1000 x pthread_create     : 0.1024 s
+1000 x fork() + exec()    : 0.6566 s
+1000 x posix_spawn()      : 0.5582 s
+== run 3
+1000 x fork() only        : 0.2213 s
+1000 x pthread_create     : 0.0855 s
+1000 x fork() + exec()    : 0.6610 s
+1000 x posix_spawn()      : 0.5359 s

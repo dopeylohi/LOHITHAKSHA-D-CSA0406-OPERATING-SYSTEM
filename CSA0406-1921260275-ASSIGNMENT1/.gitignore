@@ -5,3 +5,4 @@ Task06/bench_copy
 Task06/*.dat
 Task07/shell
 Task07/shell_exp
+Task10/proc_vs_thread

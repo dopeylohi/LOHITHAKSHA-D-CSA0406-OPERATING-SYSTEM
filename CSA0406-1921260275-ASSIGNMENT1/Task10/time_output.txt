@@ -1,0 +1,4 @@
+1000 x fork() only        : 0.2340 s
+1000 x pthread_create     : 0.1006 s
+1000 x fork() + exec()    : 0.6626 s
+1000 x posix_spawn()      : 0.5338 s
