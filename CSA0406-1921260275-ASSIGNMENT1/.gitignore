@@ -3,3 +3,5 @@ Task06/copy_file
 *.o
 Task06/bench_copy
 Task06/*.dat
+Task07/shell
+Task07/shell_exp
