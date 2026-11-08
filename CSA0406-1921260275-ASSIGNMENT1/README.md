@@ -1,5 +1,4 @@
 # CSA04 Operating Systems - Assignment 1
-# CSA04 Operating Systems - Assignment 1
 ## Evaluate and Justify the Operating-System Design of a Smart Hospital
 
 | Field | Value |
