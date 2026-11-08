@@ -1,0 +1,42 @@
+=== mmap syscalls
+ 30.86    0.001905         476         4           close
+ 29.81    0.001840         460         4           openat
+ 19.89    0.001228         409         3           munmap
+  5.86    0.000362          36        10           mmap
+  4.44    0.000274         274         1           execve
+  2.01    0.000124          41         3           fstat
+  1.70    0.000105          35         3           mprotect
+  0.87    0.000054          27         2           pread64
+  0.55    0.000034          34         1           ftruncate
+  0.50    0.000031          31         1         1 access
+  0.47    0.000029          29         1           read
+  0.45    0.000028          28         1           prlimit64
+  0.44    0.000027          27         1           arch_prctl
+  0.44    0.000027          27         1           set_robust_list
+  0.44    0.000027          27         1           getrandom
+  0.44    0.000027          27         1           rseq
+  0.42    0.000026          26         1           brk
+  0.40    0.000025          25         1           set_tid_address
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.006173         154        40         1 total
+=== read/write 64KB syscalls
+  0.27    0.000051          25         2           pread64
+  0.15    0.000029          29         1         1 access
+  0.15    0.000028          28         1           arch_prctl
+  0.15    0.000028          28         1           set_tid_address
+  0.14    0.000026          26         1           set_robust_list
+  0.13    0.000024           8         3           brk
+  0.13    0.000024          24         1           rseq
+  0.00    0.000000           0         1           munmap
+  0.00    0.000000           0         1           prlimit64
+  0.00    0.000000           0         1           getrandom
+------ ----------- ----------- --------- --------- ----------------
+100.00    0.019146          53       359         1 total
+=== page faults and memory: mmap
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Maximum resident set size (kbytes): 21808
+	Minor (reclaiming a frame) page faults: 2406
+=== page faults and memory: read/write 64KB
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.01
+	Maximum resident set size (kbytes): 1968
+	Minor (reclaiming a frame) page faults: 96

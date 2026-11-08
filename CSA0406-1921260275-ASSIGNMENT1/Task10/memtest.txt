@@ -1,0 +1,4 @@
+baseline: VmSize 2768 kB, VmRSS 1756 kB, VmPTE 48 kB
+1000 threads alive: VmSize 8199032 kB, VmRSS 10360 kB, VmPTE 4092 kB
+baseline: VmSize 2768 kB, VmRSS 1756 kB, VmPTE 48 kB
+1000 processes alive: sum Pss 28000 kB, sum VmRSS 428000 kB (shared pages counted many times), sum VmPTE 48000 kB

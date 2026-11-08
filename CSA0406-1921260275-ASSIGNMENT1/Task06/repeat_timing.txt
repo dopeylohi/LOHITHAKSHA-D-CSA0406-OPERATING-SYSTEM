@@ -1,0 +1,7 @@
+buffer        1  real mean 15.188 (min 14.843 max 15.550)  user 1.102  sys 14.076
+buffer       16  real mean 0.949 (min 0.935 max 0.972)  user 0.072  sys 0.869
+buffer       64  real mean 0.248 (min 0.242 max 0.251)  user 0.020  sys 0.222
+buffer      512  real mean 0.047 (min 0.043 max 0.058)  user 0.003  sys 0.037
+buffer     4096  real mean 0.023 (min 0.018 max 0.026)  user 0.000  sys 0.016
+buffer    65536  real mean 0.011 (min 0.010 max 0.014)  user 0.000  sys 0.008
+buffer  1048576  real mean 0.012 (min 0.011 max 0.014)  user 0.000  sys 0.009
