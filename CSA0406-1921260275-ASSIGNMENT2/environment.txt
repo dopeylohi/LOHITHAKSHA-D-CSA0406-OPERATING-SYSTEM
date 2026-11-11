@@ -1,0 +1,12 @@
+Description:	Ubuntu 26.04.1 LTS
+6.18.58.1-microsoft-standard-WSL2
+gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+strace -- version 6.19
+git version 2.53.0
+8
+CPU(s):                                  8
+Model name:                              AMD Ryzen 5 7235HS
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+               total        used        free      shared  buff/cache   available
+Mem:           8.7Gi       556Mi       8.0Gi       4.1Mi       307Mi       8.2Gi
