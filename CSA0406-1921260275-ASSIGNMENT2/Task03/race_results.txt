@@ -1,0 +1,20 @@
+run 1
+unprotected  expected=8000000 got=1788319 lost=6211681 time=76.5 ms
+mutex        expected=8000000 got=8000000 lost=0 time=292.2 ms
+atomic       expected=8000000 got=8000000 lost=0 time=96.3 ms
+run 2
+unprotected  expected=8000000 got=1687992 lost=6312008 time=67.8 ms
+mutex        expected=8000000 got=8000000 lost=0 time=285.3 ms
+atomic       expected=8000000 got=8000000 lost=0 time=93.1 ms
+run 3
+unprotected  expected=8000000 got=1550100 lost=6449900 time=71.8 ms
+mutex        expected=8000000 got=8000000 lost=0 time=286.7 ms
+atomic       expected=8000000 got=8000000 lost=0 time=94.1 ms
+run 4
+unprotected  expected=8000000 got=1563833 lost=6436167 time=74.2 ms
+mutex        expected=8000000 got=8000000 lost=0 time=290.4 ms
+atomic       expected=8000000 got=8000000 lost=0 time=94.0 ms
+run 5
+unprotected  expected=8000000 got=1883464 lost=6116536 time=66.7 ms
+mutex        expected=8000000 got=8000000 lost=0 time=296.0 ms
+atomic       expected=8000000 got=8000000 lost=0 time=94.5 ms

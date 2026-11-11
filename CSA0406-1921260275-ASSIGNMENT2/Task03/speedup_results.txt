@@ -1,0 +1,10 @@
+config                      min_ms median_ms    max_ms  speedup  checksum
+sequential (1 thread)       2595.9    2625.5    2675.4     1.00  8111236920
+pool of 2 threads           1373.9    1390.8    1414.9     1.89  8111236920
+pool of 4 threads            828.1     835.3     851.5     3.14  8111236920
+pool of 8 threads            649.1     660.8     693.4     3.97  8111236920
+pool of 16 threads           607.5     665.5     688.6     3.95  8111236920
+1 thread per camera (64)     643.1     672.3     711.1     3.91  8111236920
+4 processes, shm             853.1     917.7    1128.9     2.86  8111236920
+8 processes, shm             635.8     663.5     684.6     3.96  8111236920
+8 processes, pipe            615.9     667.4     689.8     3.93  8111236920

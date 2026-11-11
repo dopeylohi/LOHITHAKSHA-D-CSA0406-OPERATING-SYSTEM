@@ -1,0 +1,9 @@
+/proc/2156/task contains:
+2156
+2158
+2159
+2160
+main:     pid=2156 tid=2156 | &global=0x62093e383010 heap=0x620976912010
+thread 1: pid=2156 tid=2158 | &global=0x62093e383010 heap=0x620976912010 fd_valid=yes | &local=0x78693e5fee60 errno=1
+thread 2: pid=2156 tid=2159 | &global=0x62093e383010 heap=0x620976912010 fd_valid=yes | &local=0x78693ddfde60 errno=2
+thread 3: pid=2156 tid=2160 | &global=0x62093e383010 heap=0x620976912010 fd_valid=yes | &local=0x78693d5fce60 errno=3
