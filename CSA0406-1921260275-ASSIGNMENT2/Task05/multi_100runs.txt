@@ -1,0 +1,8 @@
+config         result of 100 runs (items per producer = 20000)
+sem 1 1        PASS=100 FAIL=  0
+sem 4 4        PASS=100 FAIL=  0
+monitor 1 1    PASS=100 FAIL=  0
+monitor 4 4    PASS=100 FAIL=  0
+nomutex 1 1    PASS=100 FAIL=  0
+nomutex 4 4    PASS=  0 FAIL=100
+   last failure: impl=nomutex P=4 C=4 items=80000 sum=3194881887 expected=3200040000 missing=10437 duplicated=10373 FAIL
