@@ -1,41 +1,41 @@
-parent pid = 998
-parent: created child 0 with pid 1000
-parent: created child 1 with pid 1001
-parent: created child 2 with pid 1002
+parent pid = 21208
+parent: created child 0 with pid 21210
+parent: created child 1 with pid 21211
+parent: created child 2 with pid 21212
 
 ===== /proc/<pid>/status of each child (PCB fields) =====
 --- child 0: CPU-bound loop for 3 s  (expect running/ready, R) ---
 Name:	fork_demo
 State:	R (running)
-Pid:	1000
-PPid:	998
+Pid:	21210
+PPid:	21208
 VmRSS:	     368 kB
 voluntary_ctxt_switches:	0
-nonvoluntary_ctxt_switches:	6
+nonvoluntary_ctxt_switches:	2
 --- child 1: sleep(3)                (expect waiting, S) ---
 Name:	fork_demo
 State:	S (sleeping)
-Pid:	1001
-PPid:	998
+Pid:	21211
+PPid:	21208
 VmRSS:	     428 kB
 voluntary_ctxt_switches:	1
 nonvoluntary_ctxt_switches:	0
 --- child 2: exits immediately       (expect terminated but not reaped, Z) ---
 Name:	fork_demo
 State:	Z (zombie)
-Pid:	1002
-PPid:	998
+Pid:	21212
+PPid:	21208
 voluntary_ctxt_switches:	1
 nonvoluntary_ctxt_switches:	0
 
 ===== ps view =====
     PID    PPID STAT WCHAN          COMMAND
-   1000     998 R+   -              fork_demo
-   1001     998 S+   hrtimer_nanosl fork_demo
-   1002     998 Z+   -              fork_demo
+  21210   21208 R+   -              fork_demo
+  21211   21208 S+   hrtimer_nanosl fork_demo
+  21212   21208 Z+   -              fork_demo
 
 ===== parent reaps the children with waitpid =====
-child 0 (pid 1000) finished, exit status 10
-child 1 (pid 1001) finished, exit status 11
-child 2 (pid 1002) finished, exit status 12
-after waitpid, does /proc/1002 still exist? no (PCB freed)
+child 0 (pid 21210) finished, exit status 10
+child 1 (pid 21211) finished, exit status 11
+child 2 (pid 21212) finished, exit status 12
+after waitpid, does /proc/21212 still exist? no (PCB freed)
