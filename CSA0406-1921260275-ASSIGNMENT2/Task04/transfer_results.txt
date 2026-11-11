@@ -1,0 +1,7 @@
+size     | pipe min / median / max (ms)     | shm min / median / max (ms)      | pipe/shm
+   1 MiB |      0.976      1.197      1.455 |      1.040      1.099      1.222 | 1.09x
+  10 MiB |      7.875      8.055     13.113 |      1.257      1.378      1.976 | 5.85x
+ 100 MiB |     84.145     88.612     98.496 |      5.786      6.364      7.194 | 13.92x
+
+pipe  100 MiB  time=  108.739 ms  rate=   919.6 MiB/s  checksum OK
+shm   100 MiB  time=    8.044 ms  rate= 12431.2 MiB/s  checksum OK

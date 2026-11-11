@@ -1,0 +1,10 @@
+run 1
+no sync: writer sent 1000000 readings, reader saw 5020 different ones, lost 994980
+run 2
+no sync: writer sent 1000000 readings, reader saw 5874 different ones, lost 994126
+run 3
+no sync: writer sent 1000000 readings, reader saw 4308 different ones, lost 995692
+run 4
+no sync: writer sent 1000000 readings, reader saw 4044 different ones, lost 995956
+run 5
+no sync: writer sent 1000000 readings, reader saw 5216 different ones, lost 994784

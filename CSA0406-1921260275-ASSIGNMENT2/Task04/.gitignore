@@ -1,0 +1,5 @@
+pipe_ok
+pipe_noclose
+shm_sem
+nosync
+xfer
