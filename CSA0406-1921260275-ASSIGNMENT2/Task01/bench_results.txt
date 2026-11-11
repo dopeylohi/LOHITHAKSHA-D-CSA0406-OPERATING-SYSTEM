@@ -1,0 +1,20 @@
+procs   n=2000  create_total=   312.0 ms  per_task=  156.0 us  MemAvailable_drop=  236848 kB  per_task= 118.4 kB
+procs   n=2000  create_total=   264.6 ms  per_task=  132.3 us  MemAvailable_drop=  109032 kB  per_task=  54.5 kB
+procs   n=2000  create_total=   273.9 ms  per_task=  136.9 us  MemAvailable_drop=  145728 kB  per_task=  72.9 kB
+procs   n=2000  create_total=   258.4 ms  per_task=  129.2 us  MemAvailable_drop=  121724 kB  per_task=  60.9 kB
+procs   n=2000  create_total=   236.1 ms  per_task=  118.1 us  MemAvailable_drop=  128464 kB  per_task=  64.2 kB
+threads n=2000  create_total=   160.0 ms  per_task=   80.0 us  MemAvailable_drop=   -1116 kB  per_task=  -0.6 kB
+threads n=2000  create_total=   134.4 ms  per_task=   67.2 us  MemAvailable_drop=   -1272 kB  per_task=  -0.6 kB
+threads n=2000  create_total=   153.6 ms  per_task=   76.8 us  MemAvailable_drop=   56496 kB  per_task=  28.2 kB
+threads n=2000  create_total=   152.9 ms  per_task=   76.5 us  MemAvailable_drop=   56616 kB  per_task=  28.3 kB
+threads n=2000  create_total=   154.7 ms  per_task=   77.3 us  MemAvailable_drop=   51636 kB  per_task=  25.8 kB
+procs   pingpong rounds=200000  per_round_trip=  5.98 us  per_switch(approx)=  2.99 us
+procs   pingpong rounds=200000  per_round_trip=  5.86 us  per_switch(approx)=  2.93 us
+procs   pingpong rounds=200000  per_round_trip=  5.85 us  per_switch(approx)=  2.92 us
+procs   pingpong rounds=200000  per_round_trip=  5.84 us  per_switch(approx)=  2.92 us
+procs   pingpong rounds=200000  per_round_trip=  5.79 us  per_switch(approx)=  2.90 us
+threads pingpong rounds=200000  per_round_trip=  5.61 us  per_switch(approx)=  2.81 us
+threads pingpong rounds=200000  per_round_trip=  5.64 us  per_switch(approx)=  2.82 us
+threads pingpong rounds=200000  per_round_trip=  5.58 us  per_switch(approx)=  2.79 us
+threads pingpong rounds=200000  per_round_trip=  5.54 us  per_switch(approx)=  2.77 us
+threads pingpong rounds=200000  per_round_trip=  5.59 us  per_switch(approx)=  2.80 us

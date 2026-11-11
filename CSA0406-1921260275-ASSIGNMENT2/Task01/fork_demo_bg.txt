@@ -1,0 +1,41 @@
+parent pid = 1020
+parent: created child 0 with pid 1022
+parent: created child 1 with pid 1023
+parent: created child 2 with pid 1024
+
+===== /proc/<pid>/status of each child (PCB fields) =====
+--- child 0: CPU-bound loop for 3 s  (expect running/ready, R) ---
+Name:	fork_demo
+State:	R (running)
+Pid:	1022
+PPid:	1020
+VmRSS:	     368 kB
+voluntary_ctxt_switches:	0
+nonvoluntary_ctxt_switches:	3
+--- child 1: sleep(3)                (expect waiting, S) ---
+Name:	fork_demo
+State:	S (sleeping)
+Pid:	1023
+PPid:	1020
+VmRSS:	     428 kB
+voluntary_ctxt_switches:	1
+nonvoluntary_ctxt_switches:	0
+--- child 2: exits immediately       (expect terminated but not reaped, Z) ---
+Name:	fork_demo
+State:	Z (zombie)
+Pid:	1024
+PPid:	1020
+voluntary_ctxt_switches:	1
+nonvoluntary_ctxt_switches:	0
+
+===== ps view =====
+    PID    PPID STAT WCHAN          COMMAND
+   1022    1020 R    -              fork_demo
+   1023    1020 S    hrtimer_nanosl fork_demo
+   1024    1020 Z    -              fork_demo
+
+===== parent reaps the children with waitpid =====
+child 0 (pid 1022) finished, exit status 10
+child 1 (pid 1023) finished, exit status 11
+child 2 (pid 1024) finished, exit status 12
+after waitpid, does /proc/1024 still exist? no (PCB freed)
