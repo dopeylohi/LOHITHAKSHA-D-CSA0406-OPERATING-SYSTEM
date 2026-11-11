@@ -1,0 +1,55 @@
+FCFS
+Gantt: P1(0-8) P2(8-12) P3(12-21) P4(21-26)
+Proc AT BT PR  Fin TAT  WT  RT
+P1    0  8  2    8   8   0   0
+P2    1  4  3   12  11   7   7
+P3    2  9  1   21  19  10  10
+P4    3  5  4   26  23  18  18
+Average: TAT = 15.25, WT = 8.75, RT = 8.75, context switches = 3
+
+SJF (non-preemptive)
+Gantt: P1(0-8) P2(8-12) P4(12-17) P3(17-26)
+Proc AT BT PR  Fin TAT  WT  RT
+P1    0  8  2    8   8   0   0
+P2    1  4  3   12  11   7   7
+P3    2  9  1   26  24  15  15
+P4    3  5  4   17  14   9   9
+Average: TAT = 14.25, WT = 7.75, RT = 7.75, context switches = 3
+
+SRTF (preemptive SJF)
+Gantt: P1(0-1) P2(1-5) P4(5-10) P1(10-17) P3(17-26)
+Proc AT BT PR  Fin TAT  WT  RT
+P1    0  8  2   17  17   9   0
+P2    1  4  3    5   4   0   0
+P3    2  9  1   26  24  15  15
+P4    3  5  4   10   7   2   2
+Average: TAT = 13.00, WT = 6.50, RT = 4.25, context switches = 4
+
+Priority (non-preemptive, assumed priorities)
+Gantt: P1(0-8) P3(8-17) P2(17-21) P4(21-26)
+Proc AT BT PR  Fin TAT  WT  RT
+P1    0  8  2    8   8   0   0
+P2    1  4  3   21  20  16  16
+P3    2  9  1   17  15   6   6
+P4    3  5  4   26  23  18  18
+Average: TAT = 16.50, WT = 10.00, RT = 10.00, context switches = 3
+
+Round Robin q=3
+Gantt: P1(0-3) P2(3-6) P3(6-9) P4(9-12) P1(12-15) P2(15-16) P3(16-19) P4(19-21) P1(21-23) P3(23-26)
+Proc AT BT PR  Fin TAT  WT  RT
+P1    0  8  2   23  23  15   0
+P2    1  4  3   16  15  11   2
+P3    2  9  1   26  24  15   4
+P4    3  5  4   21  18  13   6
+Average: TAT = 20.00, WT = 13.50, RT = 3.00, context switches = 9
+
+SUMMARY (jobs P1..P4: AT 0,1,2,3  BT 8,4,9,5  priority 2,3,1,4)
+Algorithm                                         avgTAT   avgWT   avgRT switch
+FCFS                                               15.25    8.75    8.75      3
+SJF (non-preemptive)                               14.25    7.75    7.75      3
+SRTF (preemptive SJF)                              13.00    6.50    4.25      4
+Priority (non-preemptive, assumed priorities)      16.50   10.00   10.00      3
+Round Robin q=3                                    20.00   13.50    3.00      9
+Round Robin q=1                                    19.00   12.50    0.75     23
+Round Robin q=5                                    17.50   11.00    5.50      5
+Round Robin q=20                                   15.25    8.75    8.75      3

@@ -1,0 +1,25 @@
+run 1
+n=    10 ready jobs: SJF decision =       18.7 ns   MLFQ decision =   12.7 ns
+n=   100 ready jobs: SJF decision =      116.4 ns   MLFQ decision =   10.7 ns
+n=  1000 ready jobs: SJF decision =     1072.6 ns   MLFQ decision =   10.6 ns
+n= 10000 ready jobs: SJF decision =    10530.3 ns   MLFQ decision =   11.0 ns
+run 2
+n=    10 ready jobs: SJF decision =       15.7 ns   MLFQ decision =   11.4 ns
+n=   100 ready jobs: SJF decision =      135.2 ns   MLFQ decision =   10.7 ns
+n=  1000 ready jobs: SJF decision =     1083.3 ns   MLFQ decision =   10.6 ns
+n= 10000 ready jobs: SJF decision =    10656.7 ns   MLFQ decision =   10.5 ns
+run 3
+n=    10 ready jobs: SJF decision =       15.3 ns   MLFQ decision =   10.6 ns
+n=   100 ready jobs: SJF decision =      129.0 ns   MLFQ decision =   10.8 ns
+n=  1000 ready jobs: SJF decision =     1226.6 ns   MLFQ decision =   10.8 ns
+n= 10000 ready jobs: SJF decision =    10781.8 ns   MLFQ decision =   11.2 ns
+run 4
+n=    10 ready jobs: SJF decision =       15.5 ns   MLFQ decision =   10.7 ns
+n=   100 ready jobs: SJF decision =      111.8 ns   MLFQ decision =   11.4 ns
+n=  1000 ready jobs: SJF decision =     1089.7 ns   MLFQ decision =   10.6 ns
+n= 10000 ready jobs: SJF decision =    11408.5 ns   MLFQ decision =   11.3 ns
+run 5
+n=    10 ready jobs: SJF decision =       15.1 ns   MLFQ decision =   10.6 ns
+n=   100 ready jobs: SJF decision =      113.8 ns   MLFQ decision =   10.5 ns
+n=  1000 ready jobs: SJF decision =     1110.9 ns   MLFQ decision =   10.6 ns
+n= 10000 ready jobs: SJF decision =    10542.7 ns   MLFQ decision =   10.5 ns

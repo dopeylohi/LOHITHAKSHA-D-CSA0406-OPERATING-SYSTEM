@@ -1,0 +1,5 @@
+3 long jobs (burst 30, t=0) + 12 short jobs (burst 2, t=2,5,...,35)
+FCFS                       avg WT short =  82.50   avg WT long =  30.00   max WT long =  60   dispatches =  15
+SJF (non-preemptive)       avg WT short =  22.50   avg WT long =  46.00   max WT long =  84   dispatches =  15
+Round Robin q=4            avg WT short =  17.17   avg WT long =  82.00   max WT long =  84   dispatches =  36
+MLFQ quanta 2/4/8          avg WT short =   1.83   avg WT long =  76.00   max WT long =  84   dispatches =  27

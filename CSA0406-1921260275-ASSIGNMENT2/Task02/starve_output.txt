@@ -1,0 +1,5 @@
+(age 0 = no ageing)
+ageing every  0 units: long job starts at t=40, finishes t=50, its WT=40 | stream avg WT=0.00
+ageing every 10 units: long job starts at t=40, finishes t=50, its WT=40 | stream avg WT=0.00
+ageing every  5 units: long job starts at t=40, finishes t=50, its WT=40 | stream avg WT=0.00
+ageing every  2 units: long job starts at t=16, finishes t=26, its WT=16 | stream avg WT=6.00
