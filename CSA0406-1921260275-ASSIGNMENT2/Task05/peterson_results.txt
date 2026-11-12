@@ -1,0 +1,15 @@
+run 1
+A volatile (plain Peterson)  expected=2000000 got=1996347 lost=3653 time=95.7 ms
+B seq_cst atomics            expected=2000000 got=2000000 lost=0 time=162.3 ms
+run 2
+A volatile (plain Peterson)  expected=2000000 got=1997157 lost=2843 time=67.9 ms
+B seq_cst atomics            expected=2000000 got=2000000 lost=0 time=142.7 ms
+run 3
+A volatile (plain Peterson)  expected=2000000 got=1997611 lost=2389 time=66.1 ms
+B seq_cst atomics            expected=2000000 got=2000000 lost=0 time=110.4 ms
+run 4
+A volatile (plain Peterson)  expected=2000000 got=1997534 lost=2466 time=62.5 ms
+B seq_cst atomics            expected=2000000 got=2000000 lost=0 time=158.4 ms
+run 5
+A volatile (plain Peterson)  expected=2000000 got=1998303 lost=1697 time=61.0 ms
+B seq_cst atomics            expected=2000000 got=2000000 lost=0 time=168.4 ms

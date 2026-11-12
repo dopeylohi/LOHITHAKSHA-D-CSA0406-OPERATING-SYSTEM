@@ -1,0 +1,16 @@
+cs     mode    threads  ns/update(med)  cpu/wall check
+short  mutex         1             8.1      0.93 OK
+short  spin          1             3.7      0.67 OK
+short  atomic        1             2.3      0.73 OK
+short  mutex         4            19.8      2.92 OK
+short  spin          4            55.0      3.81 OK
+short  atomic        4            12.2      3.17 OK
+short  mutex        16            39.0      7.26 OK
+short  spin         16           213.3      7.70 OK
+short  atomic       16            16.2      6.16 OK
+long   mutex         1         19394.5      0.99 OK
+long   spin          1         19601.7      0.98 OK
+long   mutex         4         35364.7      1.11 OK
+long   spin          4         19722.8      3.17 OK
+long   mutex        16         35377.2      1.02 OK
+long   spin         16         32448.7      7.05 OK

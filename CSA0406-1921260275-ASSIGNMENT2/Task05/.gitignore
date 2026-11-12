@@ -1,3 +1,7 @@
 bb
 bb_nomutex
 bb_multi
+booking
+peterson
+classic
+counter

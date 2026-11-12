@@ -1,0 +1,7 @@
+phil naive  : DEADLOCK - nobody has eaten for 1 s (total meals 0); meals: 0 0 0 0 0
+phil naive  : DEADLOCK - nobody has eaten for 1 s (total meals 0); meals: 0 0 0 0 0
+phil naive  : DEADLOCK - nobody has eaten for 1 s (total meals 0); meals: 0 0 0 0 0
+phil ordered: no deadlock in 3 s, total meals 6229; meals: 786 1459 1525 1673 786
+phil room   : no deadlock in 3 s, total meals 7678; meals: 1536 1524 1539 1540 1539
+rw sem    : reads=31357 writes=2502 inconsistent reads=0
+rw nosync : reads=40731 writes=9486 inconsistent reads=39340
