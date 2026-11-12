@@ -1,0 +1,14 @@
+correctness check:
+given state: safe=1 sequence: P1 P3 P4 P0 P2
+worst-case chain n=10: safe=1 sequence: P9 P8 P7 P6 P5 P4 P3 P2 P1 P0
+best-case state  n=10: safe=1 sequence: P0 P1 P2 P3 P4 P5 P6 P7 P8 P9
+
+case        n    m  median_us_per_check
+best       10    3                0.037
+best      100    3                0.297
+best     1000    3                2.937
+worst      10    3                0.128
+worst     100    3               10.381
+worst    1000    3              900.383
+worst    1000    6             1478.000
+worst    1000   12             2468.999
