@@ -1,0 +1,20 @@
+=== A. Page-table size, single-level, 4 KB pages [C] ===
+32-bit: entries = 2^(32-12) = 1048576; entry 4 bytes [A] -> 4194304 bytes = 4 MiB per process
+48-bit: entries = 2^(48-12) = 68719476736; entry 8 bytes [A] -> 549755813888 bytes = 512 GiB per process
+48-bit, 4-level (9 bits per level, 4 KB tables) for a process touching one page: 4 tables x 4 KB = 16 KB minimum [C]
+
+=== B. Table size for different page sizes ===
+page 1024 B: 32-bit entries 4194304 -> 16384 KiB (4 B/entry) ; 48-bit entries 274877906944 -> 2048 GiB (8 B/entry)
+page 4096 B: 32-bit entries 1048576 -> 4096 KiB (4 B/entry) ; 48-bit entries 68719476736 -> 512 GiB (8 B/entry)
+page 2097152 B: 32-bit entries 2048 -> 8 KiB (4 B/entry) ; 48-bit entries 134217728 -> 1 GiB (8 B/entry)
+
+=== C. Effective access time (EAT), memory m=100 ns, TLB t=10 ns [A] ===
+Formula: EAT = h*(t+m*L) + (1-h)*(t+m*(L+1)), where L = 1 for one-level (hit: t+m; miss: t+2m)
+No TLB, one-level table : 2m = 200 ns
+No TLB, 4-level table   : 5m = 500 ns
+h=0.80 : one-level = 0.80*110 + 0.20*210 = 130.0 ns ; 4-level = 0.80*110 + 0.20*510 = 190.0 ns
+h=0.95 : one-level = 0.95*110 + 0.05*210 = 115.0 ns ; 4-level = 0.95*110 + 0.05*510 = 130.0 ns
+h=0.99 : one-level = 0.99*110 + 0.01*210 = 111.0 ns ; 4-level = 0.99*110 + 0.01*510 = 114.0 ns
+
+=== D. Inverted page table size (alternative) ===
+RAM 16 GB [A], page 4 KB -> frames = 4194304; entry 16 bytes [A] -> 64 MiB for the whole machine, independent of the number of processes [C]

@@ -1,0 +1,6 @@
+1024 -> page 1 offset 0 : physical 2048
+2047 -> page 1 offset 1023 : physical 3071
+6144 -> page 6 offset 0 : physical 3072
+7167 -> page 6 offset 1023 : physical 4095
+8191 -> page 7 offset 1023 : page fault
+8192 -> page 8 offset 0 : invalid address

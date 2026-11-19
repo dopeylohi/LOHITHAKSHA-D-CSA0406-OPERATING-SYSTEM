@@ -1,0 +1,13 @@
+4096
+### /usr/bin/time -v ./paging
+	Maximum resident set size (kbytes): 1784
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 77
+	Page size (bytes): 4096
+### /usr/bin/time -v ./touch 64
+page size 4096 bytes, touched 64 MB = 16384 pages
+minor faults during touching: 16384, major faults: 0
+	Maximum resident set size (kbytes): 67448
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 16464
+	Page size (bytes): 4096

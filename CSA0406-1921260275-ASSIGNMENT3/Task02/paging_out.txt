@@ -1,0 +1,15 @@
+### PAGE_SIZE 1024
+0 -> page 0 offset 0 : physical 5120
+1500 -> page 1 offset 476 : physical 2524
+3100 -> page 3 offset 28 : physical 7196
+6200 -> page 6 offset 56 : physical 3128
+9000 -> page 8 offset 808 : invalid address
+2049 -> page 2 offset 1 : page fault
+
+### PAGE_SIZE 2048
+0 -> page 0 offset 0 : physical 10240
+1500 -> page 0 offset 1500 : physical 11740
+3100 -> page 1 offset 1052 : physical 5148
+6200 -> page 3 offset 56 : physical 14392
+9000 -> page 4 offset 808 : physical 808
+2049 -> page 1 offset 1 : physical 4097

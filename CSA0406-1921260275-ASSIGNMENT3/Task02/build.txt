@@ -1,0 +1,10 @@
++ for f in paging paging_2048 edge_test frag touch
++ gcc -std=c11 -Wall -Wextra -O2 -o paging paging.c
++ for f in paging paging_2048 edge_test frag touch
++ gcc -std=c11 -Wall -Wextra -O2 -o paging_2048 paging_2048.c
++ for f in paging paging_2048 edge_test frag touch
++ gcc -std=c11 -Wall -Wextra -O2 -o edge_test edge_test.c
++ for f in paging paging_2048 edge_test frag touch
++ gcc -std=c11 -Wall -Wextra -O2 -o frag frag.c
++ for f in paging paging_2048 edge_test frag touch
++ gcc -std=c11 -Wall -Wextra -O2 -o touch touch.c

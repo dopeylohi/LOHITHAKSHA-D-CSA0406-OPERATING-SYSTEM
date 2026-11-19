@@ -1,0 +1,25 @@
+100 processes, sizes uniform in 1..10485760 bytes [A], xorshift32 generator
+seed 1: total process size 533220936 bytes
+  page 1 KB: pages (table entries) 520777, internal fragmentation 54712 bytes, avg 547.1 bytes/process, 0.0103% of allocated memory
+  page 4 KB: pages (table entries) 130231, internal fragmentation 205240 bytes, avg 2052.4 bytes/process, 0.0385% of allocated memory
+  page 2 MB: pages (table entries) 307, internal fragmentation 110604728 bytes, avg 1106047.3 bytes/process, 17.1793% of allocated memory
+seed 2: total process size 517083227 bytes
+  page 1 KB: pages (table entries) 505017, internal fragmentation 54181 bytes, avg 541.8 bytes/process, 0.0105% of allocated memory
+  page 4 KB: pages (table entries) 126292, internal fragmentation 208805 bytes, avg 2088.1 bytes/process, 0.0404% of allocated memory
+  page 2 MB: pages (table entries) 298, internal fragmentation 107868069 bytes, avg 1078680.7 bytes/process, 17.2602% of allocated memory
+seed 3: total process size 567563690 bytes
+  page 1 KB: pages (table entries) 554311, internal fragmentation 50774 bytes, avg 507.7 bytes/process, 0.0089% of allocated memory
+  page 4 KB: pages (table entries) 138615, internal fragmentation 203350 bytes, avg 2033.5 bytes/process, 0.0358% of allocated memory
+  page 2 MB: pages (table entries) 319, internal fragmentation 101427798 bytes, avg 1014278.0 bytes/process, 15.1613% of allocated memory
+seed 4: total process size 523505652 bytes
+  page 1 KB: pages (table entries) 511283, internal fragmentation 48140 bytes, avg 481.4 bytes/process, 0.0092% of allocated memory
+  page 4 KB: pages (table entries) 127862, internal fragmentation 217100 bytes, avg 2171.0 bytes/process, 0.0415% of allocated memory
+  page 2 MB: pages (table entries) 301, internal fragmentation 107737100 bytes, avg 1077371.0 bytes/process, 17.0675% of allocated memory
+seed 5: total process size 497746471 bytes
+  page 1 KB: pages (table entries) 486129, internal fragmentation 49625 bytes, avg 496.2 bytes/process, 0.0100% of allocated memory
+  page 4 KB: pages (table entries) 121571, internal fragmentation 208345 bytes, avg 2083.4 bytes/process, 0.0418% of allocated memory
+  page 2 MB: pages (table entries) 287, internal fragmentation 104136153 bytes, avg 1041361.5 bytes/process, 17.3017% of allocated memory
+MEAN over 5 seeds:
+  page 1 KB: avg waste 514.9 bytes/process (page/2 = 512.0), 0.0098% of allocated memory, 515503 table entries for 100 processes
+  page 4 KB: avg waste 2085.7 bytes/process (page/2 = 2048.0), 0.0396% of allocated memory, 128914 table entries for 100 processes
+  page 2 MB: avg waste 1063547.7 bytes/process (page/2 = 1048576.0), 16.7940% of allocated memory, 302 table entries for 100 processes
