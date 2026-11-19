@@ -1,0 +1,16 @@
+mode: none
+no encryption needed, library not loaded
+library mapped  : no
+VmRSS:	    1752 kB
+
+mode: enc
+library version : 1.0 (original, key 0x5A)
+cipher (hex)    : 1b19196b68696e77181b161b14191f776f6a6a6a
+&bankenc_encrypt = 0x7adf477e5110 (found by dlsym)
+7adf477e4000-7adf477e5000 r--p 00000000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+7adf477e5000-7adf477e6000 r-xp 00001000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+7adf477e6000-7adf477e7000 r--p 00002000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+7adf477e7000-7adf477e8000 r--p 00002000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+7adf477e8000-7adf477e9000 rw-p 00003000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+library mapped  : YES
+VmRSS:	    1840 kB

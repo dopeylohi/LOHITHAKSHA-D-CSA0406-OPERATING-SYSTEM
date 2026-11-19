@@ -1,0 +1,6 @@
++ gcc -std=c11 -Wall -Wextra -O2 -fPIC -shared -o libbankenc.so bankenc.c
++ gcc -std=c11 -Wall -Wextra -O2 -DV2 -fPIC -shared -o libbankenc_v2.so bankenc.c
++ cp libbankenc.so libbankenc_v1.so
++ gcc -std=c11 -Wall -Wextra -O2 -static -o app_static app.c bankenc.c
++ gcc -std=c11 -Wall -Wextra -O2 -o app_dyn app.c -L. -lbankenc '-Wl,-rpath,$ORIGIN'
++ gcc -std=c11 -Wall -Wextra -O2 -o dl_app dl_app.c

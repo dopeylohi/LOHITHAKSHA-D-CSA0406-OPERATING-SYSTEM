@@ -1,0 +1,62 @@
+===== app_static : two copies, PIDs 6238 and 6239 =====
+--- PID 6238 ---
+r-xp /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_static
+   Size:          536 kB
+   Rss:           536 kB
+   Pss:           268 kB
+   Shared_Clean:  536 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+--- PID 6239 ---
+r-xp /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_static
+   Size:          536 kB
+   Rss:           536 kB
+   Pss:           268 kB
+   Shared_Clean:  536 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+===== app_dyn : two copies, PIDs 6243 and 6244 =====
+--- PID 6243 ---
+r-xp /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_dyn
+   Size:          4 kB
+   Rss:           4 kB
+   Pss:           2 kB
+   Shared_Clean:  4 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
+   Size:          1632 kB
+   Rss:           1248 kB
+   Pss:           52 kB
+   Shared_Clean:  1248 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+r-xp /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+   Size:          4 kB
+   Rss:           4 kB
+   Pss:           2 kB
+   Shared_Clean:  4 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+--- PID 6244 ---
+r-xp /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_dyn
+   Size:          4 kB
+   Rss:           4 kB
+   Pss:           2 kB
+   Shared_Clean:  4 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
+   Size:          1632 kB
+   Rss:           1248 kB
+   Pss:           52 kB
+   Shared_Clean:  1248 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB
+r-xp /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+   Size:          4 kB
+   Rss:           4 kB
+   Pss:           2 kB
+   Shared_Clean:  4 kB
+   Shared_Dirty:  0 kB
+   Private_Clean: 0 kB

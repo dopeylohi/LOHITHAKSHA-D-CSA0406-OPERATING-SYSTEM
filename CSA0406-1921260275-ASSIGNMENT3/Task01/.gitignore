@@ -1,0 +1,5 @@
+app_static
+app_dyn
+dl_app
+*.so
+*.hidden

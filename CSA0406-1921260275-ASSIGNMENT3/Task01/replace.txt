@@ -1,0 +1,14 @@
+--- BEFORE: original library v1
+0413a940674bf409e12b59295ca7ca19  app_dyn
+ba3d57ca96223102d2a79fb9d38a0982  libbankenc.so
+library version : 1.0 (original, key 0x5A)
+plain text      : ACC1234-BALANCE-5000
+cipher (hex)    : 1b19196b68696e77181b161b14191f776f6a6a6a
+--- replace ONLY the shared library with v2 (no recompile, no relink)
+0413a940674bf409e12b59295ca7ca19  app_dyn
+1a4635c0a03fddcc14f513d42b540de0  libbankenc.so
+library version : 2.0 (security fix, key 0x7C)
+plain text      : ACC1234-BALANCE-5000
+cipher (hex)    : 3d3f3f4d4e4f48513e3d303d323f3951494c4c4c
+--- static build is unchanged (needs a rebuild to get the fix)
+library version : 1.0 (original, key 0x5A)

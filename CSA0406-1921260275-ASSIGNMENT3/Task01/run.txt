@@ -1,0 +1,47 @@
+### static
+library version : 1.0 (original, key 0x5A)
+plain text      : ACC1234-BALANCE-5000
+cipher (hex)    : 1b19196b68696e77181b161b14191f776f6a6a6a
+&main          = 0x401800
+&bankenc_encrypt = 0x401cd0
+VmSize:	    1044 kB
+VmRSS:	     728 kB
+--- /proc/self/maps (executable segments, heap, stack) ---
+00401000-00487000 r-xp 00001000 08:30 75701                              /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_static
+20f6e000-20f90000 rw-p 00000000 00:00 0                                  [heap]
+79d612de1000-79d612de3000 r-xp 00000000 00:00 0                          [vdso]
+7ffe31920000-7ffe31941000 rw-p 00000000 00:00 0                          [stack]
+
+### dynamic, run 1
+library version : 1.0 (original, key 0x5A)
+plain text      : ACC1234-BALANCE-5000
+cipher (hex)    : 1b19196b68696e77181b161b14191f776f6a6a6a
+&main          = 0x62e8a8a9c1d0
+&bankenc_encrypt = 0x6ffee1e03110
+VmSize:	    2792 kB
+VmRSS:	    1836 kB
+--- /proc/self/maps (executable segments, heap, stack) ---
+62e8a8a9c000-62e8a8a9d000 r-xp 00001000 08:30 75702                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_dyn
+62e8df854000-62e8df876000 rw-p 00000000 00:00 0                          [heap]
+6ffee1a28000-6ffee1bc0000 r-xp 00028000 08:30 13614                      /usr/lib/x86_64-linux-gnu/libc.so.6
+6ffee1e03000-6ffee1e04000 r-xp 00001000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+6ffee1e0f000-6ffee1e11000 r-xp 00000000 00:00 0                          [vdso]
+6ffee1e12000-6ffee1e41000 r-xp 00001000 08:30 13611                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffee62e2000-7ffee6303000 rw-p 00000000 00:00 0                          [stack]
+
+### dynamic, run 2
+library version : 1.0 (original, key 0x5A)
+plain text      : ACC1234-BALANCE-5000
+cipher (hex)    : 1b19196b68696e77181b161b14191f776f6a6a6a
+&main          = 0x59963bb6e1d0
+&bankenc_encrypt = 0x75bfdf54c110
+VmSize:	    2792 kB
+VmRSS:	    1836 kB
+--- /proc/self/maps (executable segments, heap, stack) ---
+59963bb6e000-59963bb6f000 r-xp 00001000 08:30 75702                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/app_dyn
+59966edaf000-59966edd1000 rw-p 00000000 00:00 0                          [heap]
+75bfdf228000-75bfdf3c0000 r-xp 00028000 08:30 13614                      /usr/lib/x86_64-linux-gnu/libc.so.6
+75bfdf54c000-75bfdf54d000 r-xp 00001000 08:30 75698                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so
+75bfdf558000-75bfdf55a000 r-xp 00000000 00:00 0                          [vdso]
+75bfdf55b000-75bfdf58a000 r-xp 00001000 08:30 13611                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffda63a0000-7ffda63c1000 rw-p 00000000 00:00 0                          [stack]

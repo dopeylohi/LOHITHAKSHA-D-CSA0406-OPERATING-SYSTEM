@@ -1,0 +1,16 @@
+--- library hidden. Dynamically linked app:
+./app_dyn: error while loading shared libraries: libbankenc.so: cannot open shared object file: No such file or directory
+exit code: 127
+--- static app (does not need the .so):
+library version : 1.0 (original, key 0x5A)
+exit code: 0
+--- dlopen app, encryption needed:
+ERROR: cannot load encryption library: ./libbankenc.so: cannot open shared object file: No such file or directory
+mode: enc
+exit code: 2
+--- dlopen app, encryption not needed:
+mode: none
+no encryption needed, library not loaded
+library mapped  : no
+VmRSS:	    1756 kB
+exit code: 0

@@ -1,0 +1,16 @@
+app_static round 1: 763 us per run
+app_static round 2: 715 us per run
+app_static round 3: 682 us per run
+app_static round 4: 705 us per run
+app_static round 5: 671 us per run
+app_static MEDIAN start-up: 705 us per run [M]
+app_static VmRSS runs (kB): 720 720 720 720 724 
+app_static MEDIAN VmRSS: 720 kB [M]
+app_dyn round 1: 1006 us per run
+app_dyn round 2: 904 us per run
+app_dyn round 3: 902 us per run
+app_dyn round 4: 917 us per run
+app_dyn round 5: 907 us per run
+app_dyn MEDIAN start-up: 907 us per run [M]
+app_dyn VmRSS runs (kB): 1640 1644 1640 1640 1640 
+app_dyn MEDIAN VmRSS: 1640 kB [M]

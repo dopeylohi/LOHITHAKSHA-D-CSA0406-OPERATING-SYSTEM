@@ -1,0 +1,14 @@
+-rwxr-xr-x 1 lohi lohi  16528 Nov 19 12:52 app_dyn
+-rwxr-xr-x 1 lohi lohi 821680 Nov 19 12:51 app_static
+-rwxr-xr-x 1 lohi lohi  15224 Nov 19 12:51 libbankenc.so
+   text	   data	    bss	    dec	    hex	filename
+ 703248	  22824	  22560	 748632	  b6c58	app_static
+   3743	    728	     16	   4487	   1187	app_dyn
+--- ldd app_dyn
+	linux-vdso.so.1 (0x00007a25ba12b000)
+	libbankenc.so => /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task01/libbankenc.so (0x00007a25ba119000)
+	libc.so.6 => /usr/lib/x86_64-linux-gnu/libc.so.6 (0x00007a25b9e00000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007a25ba12d000)
+--- ldd app_static
+	not a dynamic executable
+exit code: 1
