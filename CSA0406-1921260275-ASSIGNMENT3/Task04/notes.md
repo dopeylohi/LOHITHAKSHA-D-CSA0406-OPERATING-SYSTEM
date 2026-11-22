@@ -116,6 +116,6 @@ So: first restructure (cost: programmer time, no hardware), measure the fault ra
 - Space: demand paging needs 16 GB RAM + 8 GB swap (24 GB of memory and disk traffic); 32 GB needs 24 GB RAM and no swap traffic. Time: demand paging is O(1) per hit and a disk access (milliseconds) per fault; resident memory is O(1) per access.
 
 ## 12. Limits
-- The memory-limit test: 22 of 30 limited runs were killed, only 3 runs finished with a real slow-down and each of those was a single run per configuration, below the 5 repeats that I wanted. The numbers show the collapse clearly, but exact values are not repeatable.
+- The memory-limit test: 21 of 36 limited runs were killed (15 finished: 12 below the limit and 3 above it), only 3 runs finished with a real slow-down and each of those was a single run per configuration, below the 5 repeats that I wanted. The numbers show the collapse clearly, but exact values are not repeatable.
 - The "free RAM" is a cgroup limit of 256 MB, not a real shortage of memory, and the swap is a virtual disk on an SSD, so fault costs are much lower than a hard disk's 8 ms.
 - The fault-vs-frames curve is a simulation of a 256 KB array, scaled down from the radiologist's 24 GB.
