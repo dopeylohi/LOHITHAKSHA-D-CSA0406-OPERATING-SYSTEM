@@ -104,10 +104,22 @@ The CDN gives the same start time everywhere and saves up to about 209 ms in the
 
 **Verdict.** The CDN is much easier to run and gives uniform start times, but with 4.33 PB per month the transfer bill is large and depends on a price I could only assume. Own servers (design B) with a cloud backup copy are the evidence-based choice for the primary system if transit is cheaper than the CDN price; a CDN is worth adding for students far from the data centre or if own bandwidth cannot reach 39.7 Gbit/s.
 
+
 ## Program outputs (copied from the runs)
 
 ### output_sim6.txt
 ~~~
+One server: 12 HDDs (LOOK scheduler, 2 replicas, request 4 MiB) and optionally one NVMe SSD. Library 2000 videos, Zipf popularity, window 120 s.
+Median of 5 runs (different random seeds). All service times are modelled [A], so these are simulation results.
+
+streams  design               start med  start p95  start p99     late %  HDD busy%   on SSD %
+4000     A: HDD only            115.1 ms    324.3 ms    526.3 ms       0.00       96.8        0.0
+4000     B: SSD tier + HDD        2.0 ms     54.9 ms     74.3 ms       0.00       28.3       71.9
+4500     A: HDD only           1033.0 ms   4066.3 ms   5556.3 ms       0.32      101.9        0.0
+4500     B: SSD tier + HDD        2.2 ms     55.1 ms     75.7 ms       0.00       31.2       71.6
+
+start = time from request to the first 4 MiB chunk (includes 2 metadata reads); late = chunks later than 10 s.
+HDD busy above 100% means a backlog is still growing when the window ends.
 ~~~
 
 ### output_calc6.txt
