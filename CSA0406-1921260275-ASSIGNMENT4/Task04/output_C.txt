@@ -1,0 +1,23 @@
+Mean wait (ms) by cylinder zone, pooled over 5 seeds x 10000 requests.
+Zones: low = cylinders 0-66, middle = 67-132, high = 133-199.
+
+light load
+alg            low     middle       high   middle/edges
+SCAN           8.2        7.9        8.3           0.96
+C-SCAN        32.1       20.9       13.2           0.92
+LOOK           1.8        1.7        1.8           0.96
+C-LOOK         8.9        4.4        2.2           0.80
+
+medium load
+alg            low     middle       high   middle/edges
+SCAN          19.3       16.2       19.3           0.84
+C-SCAN        39.0       29.7       26.7           0.90
+LOOK           9.0        7.4        9.0           0.82
+C-LOOK        17.8       12.8       11.5           0.87
+
+heavy load
+alg            low     middle       high   middle/edges
+SCAN          40.9       29.1       40.9           0.71
+C-SCAN        55.8       52.4       52.1           0.97
+LOOK          36.1       25.6       36.4           0.71
+C-LOOK        49.6       46.4       46.6           0.96

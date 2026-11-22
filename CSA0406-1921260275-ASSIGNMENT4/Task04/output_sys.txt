@@ -1,0 +1,26 @@
+/sys/block/sda: scheduler=[none] mq-deadline kyber   rotational=1
+/sys/block/sdb: scheduler=[none] mq-deadline kyber   rotational=1
+/sys/block/sdc: scheduler=[none] mq-deadline kyber   rotational=1
+/sys/block/sdd: scheduler=[none] mq-deadline kyber   rotational=1
+
+NAME    SIZE ROTA TYPE
+ram0      4M    0 disk
+ram1      4M    0 disk
+ram2      4M    0 disk
+ram3      4M    0 disk
+ram4      4M    0 disk
+ram5      4M    0 disk
+ram6      4M    0 disk
+ram7      4M    0 disk
+ram8      4M    0 disk
+ram9      4M    0 disk
+ram10     4M    0 disk
+ram11     4M    0 disk
+ram12     4M    0 disk
+ram13     4M    0 disk
+ram14     4M    0 disk
+ram15     4M    0 disk
+sda   722.9M    1 disk
+sdb    97.4M    1 disk
+sdc       4G    1 disk
+sdd       1T    1 disk

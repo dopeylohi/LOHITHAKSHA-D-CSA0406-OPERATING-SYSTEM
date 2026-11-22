@@ -1,0 +1,29 @@
+Head at 53, queue 98 183 37 122 14 124 65 67 at t=0, then one request every 1 ms near cylinder 60 (58..62 repeating).
+Tracked request: cylinder 183. [A] seek 0.1 ms/cyl + 3.0 ms fixed.
+
+Stream of 100 requests (lasts 100 ms)
+alg         wait of 183 (ms) requests served before it
+FCFS                     7.5                        1
+SSTF                   339.5                      107
+SCAN                   305.7                       96
+C-SCAN                  22.1                        5
+LOOK                   287.9                       91
+C-LOOK                  22.1                        5
+
+Stream of 1000 requests (lasts 1000 ms)
+alg         wait of 183 (ms) requests served before it
+FCFS                     7.5                        1
+SSTF                  3039.5                     1007
+SCAN                  1298.7                      427
+C-SCAN                  22.1                        5
+LOOK                  1148.9                      378
+C-LOOK                  22.1                        5
+
+Stream of 10000 requests (lasts 10000 ms)
+alg         wait of 183 (ms) requests served before it
+FCFS                     7.5                        1
+SSTF                 30039.5                    10007
+SCAN                  1709.7                      564
+C-SCAN                  22.1                        5
+LOOK                  1334.9                      440
+C-LOOK                  22.1                        5

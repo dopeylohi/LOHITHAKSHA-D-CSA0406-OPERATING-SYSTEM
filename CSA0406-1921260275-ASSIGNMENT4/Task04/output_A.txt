@@ -1,0 +1,31 @@
+10000 random requests, cylinders 0-199, start head 100. Median of 5 seeds. [A] seek 0.1 ms/cyl + 3.0 ms fixed.
+Head movement includes the SCAN trip to the edge and the C-SCAN/C-LOOK return jump.
+
+light load: mean inter-arrival 40 ms
+alg         avg move    avg wait ms    max wait ms     sd wait ms    sd/avg
+FCFS           66.23            1.9           49.3            4.7      2.45
+SSTF           65.11            1.7           45.5            4.2      2.43
+SCAN          122.84            8.1           56.1            9.3      1.14
+C-SCAN        173.61           22.0           89.3           17.8      0.81
+LOOK           65.13            1.8           44.9            4.3      2.42
+C-LOOK         65.85            5.1           54.2            6.6      1.28
+
+medium load: mean inter-arrival 12 ms
+alg         avg move    avg wait ms    max wait ms     sd wait ms    sd/avg
+FCFS           66.23           24.0          175.9           27.0      1.13
+SSTF           55.23            8.1           98.9           10.4      1.28
+SCAN           74.39           18.3           82.1           14.5      0.79
+C-SCAN         82.19           31.8          115.0           20.0      0.63
+LOOK           55.40            8.4           69.1           10.1      1.19
+C-LOOK         58.72           13.9           81.8           13.3      0.95
+
+heavy load: mean inter-arrival 5 ms
+alg         avg move    avg wait ms    max wait ms     sd wait ms    sd/avg
+FCFS           66.23        23249.5        46456.7        13482.6      0.58
+SSTF           19.59           33.9          290.7           32.3      0.95
+SCAN           19.69           36.7          168.8           28.0      0.76
+C-SCAN         19.75           53.7          183.9           33.1      0.62
+LOOK           19.57           32.8          169.1           25.8      0.79
+C-LOOK         19.71           47.4          174.1           30.8      0.65
+
+Raw per-seed values are in sim_runs.csv
