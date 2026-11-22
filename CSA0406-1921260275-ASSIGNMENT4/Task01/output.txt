@@ -1,0 +1,30 @@
+=== 1.1 Search cost: flat directory vs improved tree (linear scan, average = n/2) ===
+Entries in flat directory N = 12000 x 50 = 600000
+Flat average comparisons    = N/2 = 300000
+Tree: 12 depts, 4 batches, 250 students per batch, 50 files per student
+Tree average comparisons    = 6 + 2 + 125 + 25 = 158
+Flat / tree ratio           = 1898 times (integer division)
+
+=== 1.2 Model of the improved design (modes and links only) ===
+drwxr-xr-x  755  demo  
+drwxr-xr-x  755  demo/courses  
+drwxr-xr-x  755  demo/courses/CSA0406  
+drwxr-xr-x  755  demo/courses/CSA0406/materials  
+drwx-wx-wt 1733  demo/courses/CSA0406/submit  
+drwxr-xr-x  755  demo/projects  
+drwxr-xr-x  755  demo/projects/IT  
+drwxrws--- 2770  demo/projects/IT/P017  
+drwxr-xr-x  755  demo/students  
+drwxr-xr-x  755  demo/students/IT  
+drwxr-xr-x  755  demo/students/IT/2026  
+drwx------  700  demo/students/IT/2026/1921260275  
+lrwxrwxrwx  777  demo/students/IT/2026/1921260275/P017  ../../../../projects/IT/P017
+drwx------  700  demo/students/IT/2026/1921260999  
+lrwxrwxrwx  777  demo/students/IT/2026/1921260999/P017  ../../../../projects/IT/P017
+
+Link check (both members reach the same single copy):
+/home/lohi/CSA0406-1921260275-Assignment4/Task01/demo/projects/IT/P017
+/home/lohi/CSA0406-1921260275-Assignment4/Task01/demo/projects/IT/P017
+
+=== 1.3 Defence word count (limit 100) ===
+98
