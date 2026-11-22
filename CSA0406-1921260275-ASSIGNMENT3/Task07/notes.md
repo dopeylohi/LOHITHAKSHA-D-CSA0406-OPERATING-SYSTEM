@@ -88,3 +88,4 @@ One remaining limitation: mlock removes only page-fault delay. Even locked, my l
 - The real hog did not create enough pressure to evict the task's pages (0 major faults in all runs); the 20 ms result is from forced reclaim by madvise, a simulation of memory pressure.
 - Task sizes, period, deadline and OS reserve are assumed; the simulator is a model at 1 MB granularity, and all its numbers are model results, not measurements of a device.
 - One machine (WSL2, 5 runs per condition); the locked worst case of 1.593 ms comes from a non-real-time kernel.
+- rt_out.txt was overwritten by an accidental second invocation of rt_test.sh that I cancelled; it was re-typed from the terminal screenshot of the original complete run (the screenshot is kept). The 30 data rows are those of the original run, not of a re-run.
