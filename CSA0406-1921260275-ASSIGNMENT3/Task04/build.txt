@@ -1,0 +1,8 @@
++ for f in touch2 memgrow cow fault_curve
++ gcc -std=c11 -Wall -Wextra -O2 -o touch2 touch2.c
++ for f in touch2 memgrow cow fault_curve
++ gcc -std=c11 -Wall -Wextra -O2 -o memgrow memgrow.c
++ for f in touch2 memgrow cow fault_curve
++ gcc -std=c11 -Wall -Wextra -O2 -o cow cow.c
++ for f in touch2 memgrow cow fault_curve
++ gcc -std=c11 -Wall -Wextra -O2 -o fault_curve fault_curve.c

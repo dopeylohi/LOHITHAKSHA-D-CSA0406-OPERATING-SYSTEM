@@ -1,0 +1,6 @@
+mode seq, 64 MB = 16384 pages of 4096 bytes
+pass 1 (first touch): minor faults 16386, major faults 0, time 76.25 ms, 4654.0 ns per page
+pass 2 (second touch): minor faults 0, major faults 0, time 0.36 ms, 21.9 ns per page
+mode rand, 64 MB = 16384 pages of 4096 bytes
+pass 1 (first touch): minor faults 16386, major faults 0, time 84.88 ms, 5180.4 ns per page
+pass 2 (second touch): minor faults 0, major faults 0, time 0.38 ms, 23.3 ns per page

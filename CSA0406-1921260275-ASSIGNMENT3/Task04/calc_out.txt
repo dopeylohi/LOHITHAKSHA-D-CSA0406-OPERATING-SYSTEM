@@ -1,0 +1,13 @@
+=== A. Effective access time EAT = (1-p)*m + p*S ===
+p = 0.001 (1 in 1,000): EAT = 0.9990000*100 + 0.0010000*8000000 = 8099.9000 ns ; slow-down = 81.00 times
+p = 0.00001 (1 in 100,000): EAT = 0.9999900*100 + 0.0000100*8000000 = 179.9990 ns ; slow-down = 1.80 times
+p = 0.000001 (1 in 1,000,000): EAT = 0.9999990*100 + 0.0000010*8000000 = 107.9999 ns ; slow-down = 1.08 times
+
+=== B. Maximum fault rate for a 10% slow-down: EAT <= 1.1*m ===
+(1-p)*100 + p*8000000 <= 110  ->  p <= 10/(8000000-100) = 1.250016e-06  (about 1 fault in 799990 accesses)
+
+=== C. Frame allocation example [A]: m = 128 frames, three processes of 10, 40 and 150 pages ===
+equal allocation       : 42.7 frames each (m/n)
+proportional, size  10  : a = s/S*m = 10/200*128 = 6.4 frames
+proportional, size  40  : a = s/S*m = 40/200*128 = 25.6 frames
+proportional, size 150  : a = s/S*m = 150/200*128 = 96.0 frames

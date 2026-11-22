@@ -1,0 +1,54 @@
+# memory limit 256 MB, swap allowed up to 4G, sizes in MB, 3 runs each
+# --- machine state ---
+               total        used        free      shared  buff/cache   available
+Mem:            8939        2076        6771           4         272        6863
+Swap:           4096         204        3891
+NAME     TYPE      SIZE   USED PRIO
+/dev/sdc partition   4G 204.1M   -2
+# --- check that the limit is applied ---
+# cgroup /system.slice/run-p87711-i88016.scope : memory.max=268435456 memory.swap.max=4294967296
+16,seq,19.8,0.1,0.1,0.1,0,0
+MB,mode,first_ms,pass1_ms,pass2_ms,pass3_ms,minflt,majflt
+128,seq,163.6,0.8,0.8,0.7,0,0
+128,seq,126.8,0.7,0.7,0.7,0,0
+128,seq,104.1,0.8,0.8,0.8,0,0
+128,rand,133.2,0.9,0.9,0.8,0,0
+128,rand,120.9,0.9,0.9,0.8,0,0
+128,rand,59.4,1.1,0.9,0.8,0,0
+192,seq,126.8,1.1,1.1,1.2,0,0
+192,seq,143.2,1.1,1.2,1.1,0,0
+192,seq,88.5,1.2,1.1,1.1,0,0
+192,rand,89.0,1.3,1.2,1.6,0,0
+192,rand,86.7,1.3,1.6,1.5,0,0
+192,rand,87.6,1.4,1.2,1.2,0,0
+256,seq,210.1,11484.6,5061.7,2816.3,150433,926
+256,seq,1642.3,8414.5,2764.7,2013.0,117972,696
+256,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+256,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+256,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+256,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+320,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+320,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+320,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+320,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+320,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+320,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+384,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+384,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+384,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+384,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+384,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+384,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+512,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+512,seq,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+512,seq,9535.0,52641.9,29351.3,17937.1,336912,56500
+512,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+512,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+512,rand,FAILED rc=137 (137 = killed by the out-of-memory killer, 124 = timeout)
+# --- baseline without any limit ---
+512,seq,475.3,3.0,2.9,3.0,0,0
+512,seq,245.3,3.0,2.9,3.0,0,0
+512,seq,244.8,3.7,3.2,3.2,0,0
+512,rand,252.2,4.1,3.7,4.5,0,0
+512,rand,221.2,4.0,3.5,3.9,0,0
+512,rand,222.0,3.8,4.0,3.9,0,0

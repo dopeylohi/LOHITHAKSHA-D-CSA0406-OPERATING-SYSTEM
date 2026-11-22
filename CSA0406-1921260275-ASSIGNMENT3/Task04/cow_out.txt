@@ -1,0 +1,11 @@
+block of 64 MB = 16384 pages written by the parent
+parent before fork           Rss   67484 kB  Pss   65979 kB  Private_Dirty   65648 kB  Shared_Dirty       0 kB
+child after fork, no write   Rss   66348 kB  Pss   32924 kB  Private_Dirty      28 kB  Shared_Dirty   65616 kB
+child wrote 1 byte in every page: minor faults 16384 (copy-on-write faults)
+child after writing          Rss   66732 kB  Pss   65748 kB  Private_Dirty   65572 kB  Shared_Dirty      72 kB
+parent, child has written    Rss   67548 kB  Pss   65935 kB  Private_Dirty   65576 kB  Shared_Dirty      72 kB
+fork() time in the parent, 5 runs each, median [ms]
+   1 MB: runs 0.162 0.404 0.172 0.330 0.238  median 0.238 ms
+  16 MB: runs 0.871 0.405 0.234 0.198 0.338  median 0.338 ms
+  64 MB: runs 1.284 1.476 1.178 1.955 1.219  median 1.284 ms
+ 256 MB: runs 3.513 3.779 7.567 5.104 14.308  median 5.104 ms
