@@ -74,7 +74,7 @@ C-LOOK: always dir = up; if nothing is ahead, jump to the lowest pending request
 ~~~
 
 - Total head movement for the given queue [C]: LOOK 208 against SCAN 236 (saves 28 = 2 x 14, the trip from 14 to 0 and back); C-LOOK 153 against C-SCAN 183 without the jump (saves 30), and 322 against 382 with the jump counted (saves 60).
-- Average and maximum waiting time [M] (from `output_A.txt`): LOOK has lower average wait than SCAN at all three loads, and C-LOOK lower than C-SCAN at all three loads, and the maximum wait is lower or equal in each case. The differences are largest at light and medium load, where SCAN and C-SCAN waste trips to the edge; at heavy load there are always requests near the edges, so the difference is small.
+- Average and maximum waiting time [M] (from `output_A.txt`): LOOK has lower average wait than SCAN at all three loads, and C-LOOK lower than C-SCAN at all three loads, and the maximum wait is lower in five of the six comparisons and about equal in the sixth (heavy load: LOOK 169.1 ms against SCAN 168.8 ms). The differences are largest at light and medium load, where SCAN and C-SCAN waste trips to the edge; at heavy load there are always requests near the edges, so the difference is small.
 - Extra work: LOOK and C-LOOK need the position of the last pending request. With an unsorted queue this is an O(n) scan of the queue each time the head must decide whether to turn. With a queue kept sorted by cylinder (balanced tree, insertion O(log n)) the nearest request ahead and the last request are found in O(log n) or O(1). SCAN and C-SCAN need no search, because the end of the disk is a constant. In my simulator the scan is O(n) per request, which is fine for 10,000 requests.
 
 ## Program outputs (copied from the runs)
