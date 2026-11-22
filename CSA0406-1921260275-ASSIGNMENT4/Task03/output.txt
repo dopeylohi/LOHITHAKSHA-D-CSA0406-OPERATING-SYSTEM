@@ -1,0 +1,53 @@
+=== Where this folder lives ===
+Device: /dev/sdd
+ext4 rw,relatime,discard,errors=remount-ro,data=ordered
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sdd       ext4 1007G   19G  938G   2% /
+
+=== df -i (inodes) ===
+Filesystem       Inodes  IUsed    IFree IUse% Mounted on
+/dev/sdd       67108864 100348 67008516    1% /
+
+=== Test files: one 5000-byte file and a hard link to it ===
+19316 -rw-r--r-- 2 lohi lohi 5000 Nov 22 09:07 file5000.bin
+19316 -rw-r--r-- 2 lohi lohi 5000 Nov 22 09:07 hardlink.bin
+
+  File: file5000.bin
+  Size: 5000      	Blocks: 16         IO Block: 4096   regular file
+Device: 8,48	Inode: 19316       Links: 2
+Access: (0644/-rw-r--r--)  Uid: ( 1000/    lohi)   Gid: ( 1000/    lohi)
+Access: 2026-11-22 09:07:50.685509625 +0000
+Modify: 2026-11-22 09:07:50.689509625 +0000
+Change: 2026-11-22 09:07:50.693509624 +0000
+ Birth: 2026-11-22 09:07:50.685509625 +0000
+
+  File: "."
+    ID: 3913e53fdd0831a6 Namelen: 255     Type: ext2/ext3
+Block Size: 4096       Fundamental block size: 4096
+Blocks: Total: 263940717  Free: 259107849  Available: 245681981
+Inodes: Total: 67108864   Free: 67008515
+
+=== tune2fs -l (key lines; full listing saved in tune2fs_full.txt) ===
+tune2fs exit=0
+Filesystem features:      has_journal ext_attr resize_inode dir_index orphan_file filetype needs_recovery extent 64bit flex_bg metadata_csum_seed sparse_super large_file huge_file dir_nlink extra_isize metadata_csum orphan_present
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Inode count:              67108864
+Block count:              268435456
+Reserved block count:     13421772
+Free blocks:              259107928
+Free inodes:              67008570
+Block size:               4096
+Inode size:               256
+Journal inode:            8
+Journal backup:           inode blocks
+
+=== Calculations [C] from the tune2fs numbers ===
+Volume size  = 268435456 blocks x 4096 = 1099511627776 bytes = 1024.00 GiB
+Free space   = 259107928 blocks x 4096 = 1061306073088 bytes = 988.42 GiB
+Reserved     = 13421772 blocks x 4096 = 54975578112 bytes = 51.20 GiB
+Free - reserved = 1006330494976 bytes (should be close to the Avail column of df)
+df reports Avail (bytes):
+1006313394176
+Inodes used  = 67108864 - 67008570 = 100294 (compare with IUsed in df -i above)
+Bytes of volume per inode = 16384
