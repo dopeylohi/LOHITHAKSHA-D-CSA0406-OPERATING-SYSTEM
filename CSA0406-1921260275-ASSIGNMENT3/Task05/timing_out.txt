@@ -1,0 +1,11 @@
+100000 references, 8 frames [A]; 5 runs each, times in ms; last column = median [M]
+locality FIFO            faults  20498  runs 0.75 0.74 0.93 1.08 0.78  median 0.78 ms
+locality LRU             faults  11661  runs 1.01 1.01 1.00 1.10 1.07  median 1.01 ms
+locality Clock           faults  15606  runs 1.05 1.08 1.06 1.07 1.08  median 1.07 ms
+locality Optimal(fast)   faults   7871  runs 1.32 1.25 1.04 1.18 1.04  median 1.18 ms
+locality Optimal(naive)  faults   7871  runs 3.14 3.10 3.16 3.17 3.13  median 3.14 ms
+random   FIFO            faults  83981  runs 0.44 0.44 0.44 0.49 0.53  median 0.44 ms
+random   LRU             faults  83990  runs 1.39 1.35 1.39 1.45 1.36  median 1.39 ms
+random   Clock           faults  83951  runs 1.12 1.30 1.35 1.18 1.17  median 1.18 ms
+random   Optimal(fast)   faults  56586  runs 1.57 1.53 1.55 1.51 1.56  median 1.55 ms
+random   Optimal(naive)  faults  56586  runs 8.11 7.37 7.93 7.78 7.84  median 7.84 ms

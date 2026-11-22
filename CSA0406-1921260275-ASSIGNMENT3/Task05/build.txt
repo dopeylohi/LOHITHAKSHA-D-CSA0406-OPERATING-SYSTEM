@@ -1,0 +1,4 @@
++ for f in lru_complete experiment
++ gcc -std=c11 -Wall -Wextra -O2 -o lru_complete lru_complete.c
++ for f in lru_complete experiment
++ gcc -std=c11 -Wall -Wextra -O2 -o experiment experiment.c
