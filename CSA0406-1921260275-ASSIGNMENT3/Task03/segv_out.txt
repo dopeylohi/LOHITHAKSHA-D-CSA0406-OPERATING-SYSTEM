@@ -1,0 +1,14 @@
+### ./segv null h
+test 'null': writing one byte to address (nil)
+no mapping contains address (nil)
+SIGSEGV delivered: fault address (nil), si_code 1 (SEGV_MAPERR: address not mapped)
+exit code: 139
+### ./segv ro h
+test 'ro': writing one byte to address 0x55975b849130
+mapping of this address: 55975b849000-55975b84a000 r--p 00002000 08:30 19153                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task03/segv
+SIGSEGV delivered: fault address 0x55975b849130, si_code 2 (SEGV_ACCERR: permission violation)
+exit code: 139
+### ./segv null
+test 'null': writing one byte to address (nil)
+no mapping contains address (nil)
+exit code: 139

@@ -1,0 +1,8 @@
++ for f in seg maps_demo segv frag_seg
++ gcc -std=c11 -Wall -Wextra -O2 -o seg seg.c
++ for f in seg maps_demo segv frag_seg
++ gcc -std=c11 -Wall -Wextra -O2 -o maps_demo maps_demo.c
++ for f in seg maps_demo segv frag_seg
++ gcc -std=c11 -Wall -Wextra -O2 -o segv segv.c
++ for f in seg maps_demo segv frag_seg
++ gcc -std=c11 -Wall -Wextra -O2 -o frag_seg frag_seg.c

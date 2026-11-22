@@ -1,0 +1,32 @@
+PID 87387
+code  (function)   0x653393802420
+rodata (constant)  0x6533938030c0
+data  (g_data)     0x653393805010
+bss   (g_bss)      0x653393805024
+heap  (malloc)     0x6533a1b71010
+stack (local var)  0x7ffcbca8e67c
+--- /proc/87387/maps ---
+653393801000-653393802000 r--p 00000000 08:30 19151                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task03/maps_demo
+653393802000-653393803000 r-xp 00001000 08:30 19151                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task03/maps_demo
+653393803000-653393804000 r--p 00002000 08:30 19151                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task03/maps_demo
+653393804000-653393805000 r--p 00002000 08:30 19151                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task03/maps_demo
+653393805000-653393806000 rw-p 00003000 08:30 19151                      /home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT3/Task03/maps_demo
+6533a1b71000-6533a1b92000 rw-p 00000000 00:00 0                          [heap]
+729a58200000-729a58228000 r--p 00000000 08:30 39252                      /usr/lib/x86_64-linux-gnu/libc.so.6
+729a58228000-729a583c0000 r-xp 00028000 08:30 39252                      /usr/lib/x86_64-linux-gnu/libc.so.6
+729a583c0000-729a5840e000 r--p 001c0000 08:30 39252                      /usr/lib/x86_64-linux-gnu/libc.so.6
+729a5840e000-729a58412000 r--p 0020e000 08:30 39252                      /usr/lib/x86_64-linux-gnu/libc.so.6
+729a58412000-729a58414000 rw-p 00212000 08:30 39252                      /usr/lib/x86_64-linux-gnu/libc.so.6
+729a58414000-729a58421000 rw-p 00000000 00:00 0 
+729a584d8000-729a584db000 rw-p 00000000 00:00 0 
+729a584e3000-729a584e5000 rw-p 00000000 00:00 0 
+729a584e5000-729a584e9000 r--p 00000000 00:00 0                          [vvar]
+729a584e9000-729a584eb000 r--p 00000000 00:00 0                          [vvar_vclock]
+729a584eb000-729a584ed000 r-xp 00000000 00:00 0                          [vdso]
+729a584ed000-729a584ee000 r--p 00000000 08:30 39249                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+729a584ee000-729a5851d000 r-xp 00001000 08:30 39249                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+729a5851d000-729a58528000 r--p 00030000 08:30 39249                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+729a58528000-729a5852a000 r--p 0003b000 08:30 39249                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+729a5852a000-729a5852b000 rw-p 0003d000 08:30 39249                      /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+729a5852b000-729a5852c000 rw-p 00000000 00:00 0 
+7ffcbca70000-7ffcbca91000 rw-p 00000000 00:00 0                          [stack]

@@ -1,0 +1,6 @@
+Program [A]: code 100 KB, data 50 KB, stack 20 KB; 32-bit addresses; 4 KB pages; table entry 4 B, segment entry 8 B (base+limit) [A]
+Pages needed: code 25, data 13, stack 5, total 43
+1. Pure segmentation : 3 segments x 8 B = 24 bytes
+2. Pure paging, single-level, whole 32-bit space : 2^20 entries x 4 B = 4194304 bytes (4096 KiB)
+3. Pure paging, two-level [A: code+data share one 2nd-level table, stack in another]: 1 top + 2 second-level tables x 4096 B = 12288 bytes
+4. Segmented paging  : 3 segment entries x 8 B + 43 page-table entries x 4 B = 24 + 172 = 196 bytes

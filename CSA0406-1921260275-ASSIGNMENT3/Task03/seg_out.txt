@@ -1,0 +1,8 @@
+(0, 0) -> physical 2000 + 0 = 2000  (segment 0 code )
+(0, 799) -> physical 2000 + 799 = 2799  (segment 0 code )
+(0, 800) -> TRAP: offset 800 >= limit 800 of segment 0 (code ), addressing error
+(1, 120) -> physical 7200 + 120 = 7320  (segment 1 data )
+(2, 299) -> physical 5000 + 299 = 5299  (segment 2 stack)
+(3, 1000) -> physical 3000 + 1000 = 4000  (segment 3 heap )
+(3, 1500) -> TRAP: offset 1500 >= limit 1200 of segment 3 (heap ), addressing error
+(4, 10) -> TRAP: invalid segment number 4

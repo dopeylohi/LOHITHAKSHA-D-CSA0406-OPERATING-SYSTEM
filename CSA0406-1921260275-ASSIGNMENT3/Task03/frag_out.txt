@@ -1,0 +1,17 @@
+memory 1024 KB, 20 segments of 4..64 KB (whole KB) [A], first-fit, remove 10 random segments, 5 seeds
+seed 1: loaded 584 KB, after removing 10: 5 holes [26 9 197 104 440] KB, free 776 KB, largest hole 440 KB, external fragmentation 43.3%
+   test request of 441 KB (= largest hole + 1 KB, chosen to exceed it): segmentation FAILS (largest hole 440 KB < 441 KB, total free 776 KB); paging needs 111 pages of 4 KB, free frames 193 -> fits
+   paging, same 20 segments with 4 KB pages: internal fragmentation 32 KB in total (KB-sized segments, [C])
+seed 2: loaded 605 KB, after removing 10: 6 holes [41 171 7 43 35 498] KB, free 795 KB, largest hole 498 KB, external fragmentation 37.4%
+   test request of 499 KB (= largest hole + 1 KB, chosen to exceed it): segmentation FAILS (largest hole 498 KB < 499 KB, total free 795 KB); paging needs 125 pages of 4 KB, free frames 195 -> fits
+   paging, same 20 segments with 4 KB pages: internal fragmentation 23 KB in total (KB-sized segments, [C])
+seed 3: loaded 639 KB, after removing 10: 5 holes [28 90 72 77 419] KB, free 686 KB, largest hole 419 KB, external fragmentation 38.9%
+   test request of 420 KB (= largest hole + 1 KB, chosen to exceed it): segmentation FAILS (largest hole 419 KB < 420 KB, total free 686 KB); paging needs 105 pages of 4 KB, free frames 170 -> fits
+   paging, same 20 segments with 4 KB pages: internal fragmentation 29 KB in total (KB-sized segments, [C])
+seed 4: loaded 652 KB, after removing 10: 6 holes [74 45 73 14 117 372] KB, free 695 KB, largest hole 372 KB, external fragmentation 46.5%
+   test request of 373 KB (= largest hole + 1 KB, chosen to exceed it): segmentation FAILS (largest hole 372 KB < 373 KB, total free 695 KB); paging needs 94 pages of 4 KB, free frames 172 -> fits
+   paging, same 20 segments with 4 KB pages: internal fragmentation 28 KB in total (KB-sized segments, [C])
+seed 5: loaded 830 KB, after removing 10: 6 holes [108 40 137 42 12 294] KB, free 633 KB, largest hole 294 KB, external fragmentation 53.6%
+   test request of 295 KB (= largest hole + 1 KB, chosen to exceed it): segmentation FAILS (largest hole 294 KB < 295 KB, total free 633 KB); paging needs 74 pages of 4 KB, free frames 157 -> fits
+   paging, same 20 segments with 4 KB pages: internal fragmentation 30 KB in total (KB-sized segments, [C])
+MEAN external fragmentation over 5 seeds: 43.9%
