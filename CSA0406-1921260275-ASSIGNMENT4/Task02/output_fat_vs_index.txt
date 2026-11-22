@@ -1,0 +1,10 @@
+File: 1048576 blocks (4 GiB). Times are in-memory look-ups only, warm cache. 5 runs each.
+method    k          lookups      ns per run (5 runs, sorted)    median ns 
+FAT       100        100             192.2    200.0    211.4    212.4    231.4      211.4
+index     100        2                 1.8      1.9      1.9      1.9      1.9        1.9
+FAT       10000      10000        124095.4 124289.8 127576.9 128862.8 133411.2   127576.9
+index     10000      3                 1.6      1.7      1.7      1.9      2.0        1.7
+FAT       1048575    1048575      15181343.0 16270547.0 16802045.0 18065604.0 22223775.0 16802045.0
+index     1048575    3                 1.5      1.6      1.8      1.8      2.0        1.8
+lookups column: FAT = memory look-ups (+1 disk read); index = disk reads incl. the data block.
+consistency: FAT and index found the same data block for every k.

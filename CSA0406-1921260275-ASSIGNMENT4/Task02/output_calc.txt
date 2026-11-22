@@ -1,0 +1,36 @@
+=== 2.1 Workload numbers (assumptions [A]: 32 cameras, 4 Mbit/s each, 1-hour segment files) ===
+Bytes per second per camera   = 4 x 1,000,000 / 8 = 500000
+Bytes per second, all cameras = 500000 x 32 = 16000000
+Block appends per second      = 16000000 / 4096 = 3906 (all cameras)
+Segment size (1 hour)         = 500000 x 3600 = 1800000000 bytes = 439454 blocks
+New segment files per day     = 32 x 24 = 768 (also 768 deletes per day once 30 days are full)
+Storage for 30 days           = 16000000 x 86400 x 30 = 41472000000000 bytes (about 41.5 TB)
+A 4 TB (4x10^12) disk lasts at 16000000 B/s: 250000 s (about 2.9 days)
+
+=== 2.3 Cost to reach the last block of a 4 GB file (assumption [A]: 4 GB = 4 GiB, directory entry / inode already in memory) ===
+Blocks in file = 4294967296 / 4096 = 1048576 ; last block number (from 0) = 1048575
+Contiguous : address = start + 1048575, so 1 disk read
+Linked     : must follow the chain from block 0, so 1048576 disk reads
+Linked, with the 4-byte pointer stored inside each block: 4092 usable bytes, so 1049602 blocks and 1049602 disk reads
+FAT        : 1048575 memory look-ups in the FAT + 1 disk read for the data block
+Indexed    : pointers per block = 4096 / 4 = 1024
+  direct covers blocks 0..11; single covers 12..1035; double covers 1036..1049611
+  block 1048575 is in the double-indirect range: double-indirect block + single-indirect block + data block = 3 disk reads
+
+=== 2.3 Maximum file size of the inode (12 direct, 1 single, 1 double, 1 triple, 4-byte addresses) ===
+Direct : 12 x 4096                = 49152 bytes (48 KiB)
+Single : 1024 x 4096              = 4194304 bytes (4 MiB)
+Double : 1024 x 1024 x 4096       = 4294967296 bytes (4 GiB)
+Triple : 1024 x 1024 x 1024 x 4096 = 4398046511104 bytes (4 TiB)
+Total  : 4402345721856 bytes (4 TiB + 4 GiB + 4 MiB + 48 KiB)
+Blocks : 12 + 1024 + 1048576 + 1073741824 = 1074791436
+A 32-bit block number can address 2^32 blocks x 4096 = 17592186044416 bytes (16 TiB), so addressing is not the limit.
+
+=== 2.4 Free-space management for a 4 TB disk (assumption [A]: 4 TB = 4 TiB = 2^42 bytes, 4 KiB blocks) ===
+Blocks = 2^42 / 4096 = 1073741824
+Bit vector = 1073741824 bits = 134217728 bytes = 128 MiB
+(If 4 TB means 4x10^12 bytes: 976562500 blocks, bit vector = 122070312 bytes = about 116 MiB)
+FAT for the same disk = 1073741824 entries x 4 bytes = 4294967296 bytes = 4 GiB
+Linked free list: no table; 4 bytes in each free block; allocating n blocks needs n reads
+Grouping: one block holds 1023 free addresses + 1 link, so an empty disk needs 1048576 group blocks (kept inside free space, no extra memory)
+Counting (start,count) 8 bytes per run: best case a few entries; worst case alternating used/free = 536870912 runs x 8 = 4294967296 bytes = 4 GiB
