@@ -1,0 +1,50 @@
+=== Stage 1/4: workload (assumptions [A]: 5 viewing hours per student per week, peak = 3 x average, 1000 MB video of 60 min, 2000 videos) ===
+Concurrent viewers at peak = 200000 x 5 / 168 x 3 = 17857
+Bitrate of one stream      = 1000 MB / 3600 s = 0.2778 MB/s = 2.22 Mbit/s
+Total read rate at peak    = 17857 x 0.2778 = 4960 MB/s = 39.7 Gbit/s
+Traffic per month          = 200000 x 5 x 4.33 weeks x 1000 MB/hour = 4330000 GB = 4.33 PB
+
+=== Stage 4: capacity ===
+Library = 2000 videos x 1000 MB = 2000 GB
+On HDD with 2 replicas = 4000 GB; hot set on SSD = 200 videos x 1000 MB = 200 GB; cloud copy = 2000 GB
+With 3 replicas instead of 2: 6000 GB on HDD
+Chance all copies are lost (p = 0.01 per copy [A], independent): 2 copies 0.000100, 3 copies 0.000001
+
+=== Stage 3: request size on a hard disk (positioning 8.2 ms [A], 150 MB/s [A]) ===
+size        transfer ms   efficiency    reads/s/HDD      streams/HDD
+4       KiB         0.03           0%          121.5                2
+64      KiB         0.44           5%          115.8               27
+256     KiB         1.75          18%          100.5               95
+1024    KiB         6.99          46%           65.8              249
+4096    KiB        27.96          77%           27.7              418
+16384   KiB       111.85          93%            8.3              503
+Chosen: 4 MiB. One chunk = 15.1 s of video, so each stream needs one read every 15.1 s
+
+=== Stage 4: servers needed (per server: 12 HDD, 25 Gbit/s link, one 3000 MB/s NVMe in design B; 70% headroom) ===
+Hit ratio of the 200 most popular videos with Zipf popularity (1/rank) = 0.719
+Streams per server: HDD side 5011, network 11250, NVMe 10800
+Design A (HDD only):     limit 5011 streams, with headroom 3507, servers = ceil(17857 / 3507) = 6
+Design B (SSD + HDD):    limit 11250 streams, with headroom 7875, servers = ceil(17857 / 7875) = 3
+
+=== Stage 4: disk reads to start playing at minute 59 of a 60-minute, 1000 MB video (4 KiB blocks) ===
+Blocks in file = 244141; block at minute 59 = 240071; double-indirect range starts at 1036
+Classic inode (Task 2): inode 1 + container index 1 + double-indirect 1 + single-indirect 1 + data chunk 1 = 5 reads
+Extent-based (XFS/ext4): inode 1 + container index 1 + data chunk 1 = 3 reads (4 if the extent list is too long for the inode)
+Time on HDD  : 5 reads = 4 x 8.2 + (8.2 + 28.0) = 69.0 ms ; 3 reads = 2 x 8.2 + (8.2 + 28.0) = 52.6 ms
+Time on SSD  : 5 reads = 4 x 0.1 + (0.1 + 1.4) = 1.9 ms ; 3 reads = 1.7 ms
+If inode and container index are already cached in RAM: 1 read = 36.2 ms on HDD, 1.5 ms on SSD
+
+=== Alternative: cloud object storage + CDN (assumptions [A]: origin in Chennai, home link 20 Mbit/s, first 2 s of video = 0.556 MB) ===
+Download of the first segment = 0.556 MB / 2.5 MB/s = 222 ms
+city         RTT origin   start, own server ms     start, CDN edge ms
+Chennai           10 ms                  304.8                  275.9
+Bengaluru         25 ms                  349.8                  275.9
+Mumbai            45 ms                  409.8                  275.9
+Kolkata           60 ms                  454.8                  275.9
+Delhi             70 ms                  484.8                  275.9
+Start time = 3 round trips (connection, TLS, request) + first segment + read time; own server read = 52.6 ms (3 reads on HDD, from above); CDN edge read 5 ms, 5% misses add 20 ms + 52.6 ms
+
+=== Alternative: monthly cost (prices [A], blended after volume discounts; real quotes differ) ===
+Object storage: 2000 GB x $0.023 = $46 per month [T price]
+CDN transfer 4330000 GB: at $0.02/GB = $86600 ; $0.03/GB = $129900 ; $0.05/GB = $216500 per month
+Own servers, internet transit 4330000 GB: at $0.005/GB = $21650 ; $0.01/GB = $43300 per month (plus the servers and staff)
