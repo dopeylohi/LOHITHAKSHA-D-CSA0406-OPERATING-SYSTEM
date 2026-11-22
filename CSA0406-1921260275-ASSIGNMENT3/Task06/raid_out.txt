@@ -1,0 +1,31 @@
+=== A. Usable capacity, 6 disks of 4 TB (decimal TB, as sold) [C] ===
+RAID 0  : n*d         = 6*4 = 24 TB   (no redundancy)
+RAID 1  : 3 mirrored pairs = 3*4 = 12 TB as three separate volumes; one 6-way mirror = 4 TB
+RAID 5  : (n-1)*d     = 5*4 = 20 TB
+RAID 6  : (n-2)*d     = 4*4 = 16 TB
+RAID 10 : n/2*d       = 3*4 = 12 TB
+Conversion: 1 TB = 10^12 B, 1 TiB = 2^40 B, so 4 TB = 3.64 TiB; RAID 5 20 TB = 18.19 TiB; RAID 6 16 TB = 14.55 TiB; RAID 10 12 TB = 10.91 TiB
+
+=== B. Probability of data loss given one disk has failed ===
+Assumptions [A]: annual failure rate AFR = 2% per disk (published HDD figures are about 1 to 3% [T]); the array is exposed for 24 h (replace + rebuild).
+q = chance that one given surviving disk fails during that window = AFR*h/8760 = 2%*24/8760 = 5.4795e-05
+RAID 1  (2-disk mirror): loss if the one partner fails          : q                          = 5.479e-05
+RAID 10 (3 mirrors)    : loss if the partner of the failed disk fails: q                    = 5.479e-05
+RAID 5  (6 disks)      : loss if any of the other 5 fails       : 1-(1-q)^5                  = 2.739e-04  (about 5q = 2.740e-04)
+RAID 6  (6 disks)      : loss if 2 or more of the other 5 fail  : 1-(1-q)^5-5q(1-q)^4       = 3.002e-08  (about 10q^2 = 3.002e-08)
+
+=== C. Probability of data loss in one year (first failure, then a second one inside the window) ===
+chance that at least one disk fails in a year: 2 disks 0.0396, 6 disks 0.1142
+RAID 1  (2 disks)  : 0.0396 * 5.479e-05 = 2.17e-06 per year (1 in 460859)
+RAID 10 (6 disks)  : 0.1142 * 5.479e-05 = 6.26e-06 per year (1 in 159867)
+RAID 5  (6 disks)  : 0.1142 * 2.739e-04 = 3.13e-05 per year (1 in 31977)
+RAID 6  (6 disks)  : 0.1142 * 3.002e-08 = 3.43e-09 per year (1 in 291788676)
+
+=== D. Unrecoverable read error (URE) during a rebuild [T] ===
+Spec value [T]: 1 error per 10^14 bits read (typical consumer HDD datasheet; enterprise disks are often 10^-15)
+RAID 5 rebuild reads 5 disks x 4 TB = 20 TB = 1.60e+14 bits: expected errors = 1.60, P(at least one) = 1-exp(-1.60) = 79.8%
+RAID 1/10 rebuild reads 1 disk x 4 TB = 3.20e+13 bits: expected errors = 0.32, P(at least one) = 27.4%
+RAID 6 can still repair a read error during a single-disk rebuild, because it has a second parity.
+
+=== E. Small-write cost (I/O operations per block written) [T] ===
+RAID 0: 1 write | RAID 1 and 10: 2 writes | RAID 5: 4 I/Os (read old data, read old parity, write data, write parity) | RAID 6: 6 I/Os (also read and write the second parity)
