@@ -1,0 +1,5 @@
+RAM 2048 MB, OS reserve 300 MB, 30000 ticks (3000 warm-up), RT period 300 ticks, 1 page = 1 MB [A]
+S1: 3 tasks, RT pages locked       demand 1600 MB, frames for non-pinned pages 1732 | faults after warm-up: RT 0 (max 0 in one activation), ML 0 (0.0 per sweep), log 0, task4 0
+S2: 3 tasks, RT pages NOT locked   demand 1616 MB, frames for non-pinned pages 1748 | faults after warm-up: RT 0 (max 0 in one activation), ML 0 (0.0 per sweep), log 0, task4 0
+S3: 4 tasks, RT pages locked       demand 2100 MB, frames for non-pinned pages 1732 | faults after warm-up: RT 0 (max 0 in one activation), ML 216000 (1536.0 per sweep), log 0, task4 29378
+S4: 4 tasks, RT pages NOT locked   demand 2116 MB, frames for non-pinned pages 1748 | faults after warm-up: RT 1440 (max 16 in one activation), ML 216000 (1536.0 per sweep), log 0, task4 29203

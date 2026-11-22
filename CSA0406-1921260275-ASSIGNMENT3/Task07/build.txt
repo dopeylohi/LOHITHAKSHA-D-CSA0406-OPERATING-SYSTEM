@@ -1,0 +1,6 @@
++ for f in rt_loop hog simulate
++ gcc -std=c11 -Wall -Wextra -O2 -o rt_loop rt_loop.c
++ for f in rt_loop hog simulate
++ gcc -std=c11 -Wall -Wextra -O2 -o hog hog.c
++ for f in rt_loop hog simulate
++ gcc -std=c11 -Wall -Wextra -O2 -o simulate simulate.c
