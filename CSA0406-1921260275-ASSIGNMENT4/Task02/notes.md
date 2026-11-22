@@ -103,84 +103,10 @@ append_block(file):
 | Memory | One entry per disk block, always in memory: 2^30 x 4 B = 4 GiB for 4 TiB [C]; space is O(D) for D disk blocks | Only the inodes of open files; space is O(open files) |
 | Reliability | FAT damage loses every file's chain, so the FAT must be stored twice | Inode damage loses one file |
 
-Measured [M] with `fat_vs_index.c` (4 GiB file scattered over the disk, 5 runs each, median reported, warm cache, in-memory look-ups only; the disk read is not timed): the FAT time grows in proportion to k, while the index time stays at a few nanoseconds. The table is at the end of this file. Look-up counts: FAT k, index 1 to 3 reads.
+Measured [M] with `fat_vs_index.c` (4 GiB file scattered over the disk, 5 runs each, median reported, warm cache, in-memory look-ups only; the disk read is not timed): the FAT time grows at least in proportion to k (the cost per look-up also rises for long chains because they no longer fit in the CPU cache), while the index time stays at a few nanoseconds. The table is at the end of this file. Look-up counts: FAT k, index 1 to 3 reads.
 
 Verdict: FAT is acceptable for small disks but for a 4 TiB recorder volume it needs 4 GiB of memory and linear seeks, so indexed allocation stays the choice.
 
-## Program outputs (copied from the runs)
-
-### output_alloc.txt
-~~~
-AAAAAA........CCCCC.............
-E (10 blocks) contiguous: start 19
-E (10 blocks) indexed: index block 6, data blocks 7 8 9 10 11 12 13 29 30 31
-AAAAAAeEEEEEEECCCCCEEEEEEEEEEEEE
-~~~
-
-### output_boundary.txt
-~~~
-Start: AAAAAA........CCCCC.............
-free blocks = 21, largest free run = 13
-
-contiguous E size 13 ->  19   AAAAAA........CCCCCEEEEEEEEEEEEE
-contiguous E size 14 ->  -1   AAAAAA........CCCCC.............
-indexed    E size 20 ->   6   AAAAAAeEEEEEEECCCCCEEEEEEEEEEEEE
-indexed    E size 21 ->  -1   AAAAAA........CCCCC.............
-~~~
-
-### output_calc.txt
-~~~
-=== 2.1 Workload numbers (assumptions [A]: 32 cameras, 4 Mbit/s each, 1-hour segment files) ===
-Bytes per second per camera   = 4 x 1,000,000 / 8 = 500000
-Bytes per second, all cameras = 500000 x 32 = 16000000
-Block appends per second      = 16000000 / 4096 = 3906 (all cameras)
-Segment size (1 hour)         = 500000 x 3600 = 1800000000 bytes = 439454 blocks
-New segment files per day     = 32 x 24 = 768 (also 768 deletes per day once 30 days are full)
-Storage for 30 days           = 16000000 x 86400 x 30 = 41472000000000 bytes (about 41.5 TB)
-A 4 TB (4x10^12) disk lasts at 16000000 B/s: 250000 s (about 2.9 days)
-
-=== 2.3 Cost to reach the last block of a 4 GB file (assumption [A]: 4 GB = 4 GiB, directory entry / inode already in memory) ===
-Blocks in file = 4294967296 / 4096 = 1048576 ; last block number (from 0) = 1048575
-Contiguous : address = start + 1048575, so 1 disk read
-Linked     : must follow the chain from block 0, so 1048576 disk reads
-Linked, with the 4-byte pointer stored inside each block: 4092 usable bytes, so 1049602 blocks and 1049602 disk reads
-FAT        : 1048575 memory look-ups in the FAT + 1 disk read for the data block
-Indexed    : pointers per block = 4096 / 4 = 1024
-  direct covers blocks 0..11; single covers 12..1035; double covers 1036..1049611
-  block 1048575 is in the double-indirect range: double-indirect block + single-indirect block + data block = 3 disk reads
-
-=== 2.3 Maximum file size of the inode (12 direct, 1 single, 1 double, 1 triple, 4-byte addresses) ===
-Direct : 12 x 4096                = 49152 bytes (48 KiB)
-Single : 1024 x 4096              = 4194304 bytes (4 MiB)
-Double : 1024 x 1024 x 4096       = 4294967296 bytes (4 GiB)
-Triple : 1024 x 1024 x 1024 x 4096 = 4398046511104 bytes (4 TiB)
-Total  : 4402345721856 bytes (4 TiB + 4 GiB + 4 MiB + 48 KiB)
-Blocks : 12 + 1024 + 1048576 + 1073741824 = 1074791436
-A 32-bit block number can address 2^32 blocks x 4096 = 17592186044416 bytes (16 TiB), so addressing is not the limit.
-
-=== 2.4 Free-space management for a 4 TB disk (assumption [A]: 4 TB = 4 TiB = 2^42 bytes, 4 KiB blocks) ===
-Blocks = 2^42 / 4096 = 1073741824
-Bit vector = 1073741824 bits = 134217728 bytes = 128 MiB
-(If 4 TB means 4x10^12 bytes: 976562500 blocks, bit vector = 122070312 bytes = about 116 MiB)
-FAT for the same disk = 1073741824 entries x 4 bytes = 4294967296 bytes = 4 GiB
-Linked free list: no table; 4 bytes in each free block; allocating n blocks needs n reads
-Grouping: one block holds 1023 free addresses + 1 link, so an empty disk needs 1048576 group blocks (kept inside free space, no extra memory)
-Counting (start,count) 8 bytes per run: best case a few entries; worst case alternating used/free = 536870912 runs x 8 = 4294967296 bytes = 4 GiB
-~~~
-
-### output_fat_vs_index.txt
-~~~
-File: 1048576 blocks (4 GiB). Times are in-memory look-ups only, warm cache. 5 runs each.
-method    k          lookups      ns per run (5 runs, sorted)    median ns 
-FAT       100        100             205.2    206.5    207.5    210.5    213.9      207.5
-index     100        2                 2.0      2.0      2.0      2.1      2.1        2.0
-FAT       10000      10000        131356.6 133534.4 139682.8 142360.1 193720.2   139682.8
-index     10000      3                 1.6      1.7      1.7      1.9      1.9        1.7
-FAT       1048575    1048575      24899413.0 29983507.0 30060544.0 39683953.0 40585961.0 30060544.0
-index     1048575    3                 1.4      1.5      1.7      2.1      2.1        1.7
-lookups column: FAT = memory look-ups (+1 disk read); index = disk reads incl. the data block.
-consistency: FAT and index found the same data block for every k.
-~~~
 
 ## Program outputs (copied from the runs)
 
