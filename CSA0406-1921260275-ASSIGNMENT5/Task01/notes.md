@@ -53,3 +53,9 @@ cron:
    */30 * * * * /bin/bash <full path>/Task01/disk_alert.sh 80 >> <full path>/Task01/cron_disk_alert.log 2>&1
  - Fields are minute, hour, day of month, month, day of week. "0 * * * *" = minute 0 of every hour = every hour. Full paths are used because cron has no $R and a very small PATH.
  - Note: the test log also contains the 3 test runs.
+
+## ss -tulpn result [M]
+ - Listening sockets were only local services: DNS on port 53 (127.0.0.53, 127.0.0.54 and 10.255.255.254), UDP 323 on 127.0.0.1 and [::1], and one TCP socket on 127.0.0.1:34927.
+ - Nothing was listening on port 22, 80 or 443, so this is the baseline before Nginx and SSH are set up in B1.3.
+ - The Process column was empty because I ran ss without sudo; [T] seeing the owner of a socket needs root.
+ - Columns: Netid = protocol, State = LISTEN (waiting for connections) or UNCONN (UDP has no connection), Recv-Q/Send-Q = queued bytes or backlog, Local Address:Port = where it listens. 127.0.0.1 means reachable only from this machine.
