@@ -1,0 +1,8 @@
+Requests per status code:
+  200 4
+  302 1
+  403 1
+  404 1
+Busiest client:
+  10.0.0.5 4
+Total bytes sent: 43200
