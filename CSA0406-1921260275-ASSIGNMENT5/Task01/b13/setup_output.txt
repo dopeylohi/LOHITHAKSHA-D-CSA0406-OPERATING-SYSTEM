@@ -1,0 +1,131 @@
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-venv is already the newest version (3.14.3-0ubuntu2).
+Solving dependencies...
+The following additional packages will be installed:
+  libwrap0 ncurses-term nginx-common openssh-sftp-server ssh-import-id
+Suggested packages:
+  fcgiwrap nginx-doc ssl-cert molly-guard monkeysphere ssh-askpass
+The following NEW packages will be installed:
+  libwrap0 ncurses-term nginx nginx-common openssh-server openssh-sftp-server
+  ssh-import-id ufw
+0 upgraded, 8 newly installed, 0 to remove and 44 not upgraded.
+Need to get 1827 kB of archives.
+After this operation, 10.4 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu resolute/main amd64 ufw all 0.36.2-9build1 [170 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute/main amd64 libwrap0 amd64 7.6.q-36build2 [48.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute/main amd64 ncurses-term all 6.6+20251231-1 [280 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 nginx-common all 1.28.3-2ubuntu1.14 [39.0 kB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 nginx amd64 1.28.3-2ubuntu1.14 [620 kB]
+Get:6 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssh-sftp-server amd64 1:10.2p1-2ubuntu3.8 [37.4 kB]
+Get:7 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssh-server amd64 1:10.2p1-2ubuntu3.8 [622 kB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute/main amd64 ssh-import-id all 5.11-0ubuntu4 [10.2 kB]
+Preconfiguring packages ...
+Fetched 1827 kB in 0s (5630 kB/s)
+Selecting previously unselected package ufw.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 47277 files and directories currently installed.)
+Preparing to unpack .../0-ufw_0.36.2-9build1_all.deb ...
+Unpacking ufw (0.36.2-9build1) ...
+Selecting previously unselected package libwrap0:amd64.
+Preparing to unpack .../1-libwrap0_7.6.q-36build2_amd64.deb ...
+Unpacking libwrap0:amd64 (7.6.q-36build2) ...
+Selecting previously unselected package ncurses-term.
+Preparing to unpack .../2-ncurses-term_6.6+20251231-1_all.deb ...
+Unpacking ncurses-term (6.6+20251231-1) ...
+Selecting previously unselected package nginx-common.
+Preparing to unpack .../3-nginx-common_1.28.3-2ubuntu1.14_all.deb ...
+Unpacking nginx-common (1.28.3-2ubuntu1.14) ...
+Selecting previously unselected package nginx.
+Preparing to unpack .../4-nginx_1.28.3-2ubuntu1.14_amd64.deb ...
+Unpacking nginx (1.28.3-2ubuntu1.14) ...
+Selecting previously unselected package openssh-sftp-server.
+Preparing to unpack .../5-openssh-sftp-server_1%3a10.2p1-2ubuntu3.8_amd64.deb ...
+Unpacking openssh-sftp-server (1:10.2p1-2ubuntu3.8) ...
+Selecting previously unselected package openssh-server.
+Preparing to unpack .../6-openssh-server_1%3a10.2p1-2ubuntu3.8_amd64.deb ...
+Unpacking openssh-server (1:10.2p1-2ubuntu3.8) ...
+Selecting previously unselected package ssh-import-id.
+Preparing to unpack .../7-ssh-import-id_5.11-0ubuntu4_all.deb ...
+Unpacking ssh-import-id (5.11-0ubuntu4) ...
+Setting up openssh-sftp-server (1:10.2p1-2ubuntu3.8) ...
+Setting up ssh-import-id (5.11-0ubuntu4) ...
+Setting up nginx-common (1.28.3-2ubuntu1.14) ...
+Created symlink '/etc/systemd/system/multi-user.target.wants/nginx.service' → '/usr/lib/systemd/system/nginx.service'.
+Setting up ufw (0.36.2-9build1) ...
+Creating config file /etc/ufw/before.rules with new version
+Creating config file /etc/ufw/before6.rules with new version
+Creating config file /etc/ufw/after.rules with new version
+Creating config file /etc/ufw/after6.rules with new version
+Created symlink '/etc/systemd/system/multi-user.target.wants/ufw.service' → '/usr/lib/systemd/system/ufw.service'.
+Setting up libwrap0:amd64 (7.6.q-36build2) ...
+Setting up ncurses-term (6.6+20251231-1) ...
+Setting up openssh-server (1:10.2p1-2ubuntu3.8) ...
+Creating config file /etc/ssh/sshd_config with new version
+Creating SSH2 RSA key; this may take some time ...
+3072 SHA256:yZOqX/cW2IuYoWo7rOW7ry9vob68cCNMKQmliU0nKkY root@lol (RSA)
+Creating SSH2 ECDSA key; this may take some time ...
+256 SHA256:xOrJH8QtBDYyEtkwZQQ3BUO8pSPp1lIgzemQfcueiN0 root@lol (ECDSA)
+Creating SSH2 ED25519 key; this may take some time ...
+256 SHA256:eQOO5gvZc/f3GTzhG6r1iMaRc7SYsw0ZeyRRFIzJHl4 root@lol (ED25519)
+Creating user 'sshd' (sshd user) with UID 986 and GID 65534.
+Created symlink '/etc/systemd/system/sockets.target.wants/ssh.socket' → '/usr/lib/systemd/system/ssh.socket'.
+Created symlink '/etc/systemd/system/ssh.service.requires/ssh.socket' → '/usr/lib/systemd/system/ssh.socket'.
+Created symlink '/etc/systemd/system/ssh.service.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Created symlink '/etc/systemd/system/sshd.service.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Created symlink '/etc/systemd/system/sshd@.service.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Created symlink '/etc/systemd/system/ssh.socket.wants/sshd-keygen.service' → '/usr/lib/systemd/system/sshd-keygen.service'.
+Setting up nginx (1.28.3-2ubuntu1.14) ...
+ * Upgrading binary nginx       [80G [74G[ OK ]
+Processing triggers for rsyslog (8.2512.0-1ubuntu4.2) ...
+Processing triggers for man-db (2.13.1-1build1) ...
+Processing triggers for libc-bin (2.43-2ubuntu2.7) ...
+Processing triggers for ufw (0.36.2-9build1) ...
+Collecting flask>=3.0 (from -r /opt/result-portal/requirements.txt (line 1))
+  Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting gunicorn>=22.0 (from -r /opt/result-portal/requirements.txt (line 2))
+  Downloading gunicorn-27.0.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting blinker>=1.9.0 (from flask>=3.0->-r /opt/result-portal/requirements.txt (line 1))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting click>=8.1.3 (from flask>=3.0->-r /opt/result-portal/requirements.txt (line 1))
+  Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting itsdangerous>=2.2.0 (from flask>=3.0->-r /opt/result-portal/requirements.txt (line 1))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting jinja2>=3.1.2 (from flask>=3.0->-r /opt/result-portal/requirements.txt (line 1))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting markupsafe>=2.1.1 (from flask>=3.0->-r /opt/result-portal/requirements.txt (line 1))
+  Downloading markupsafe-3.0.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting werkzeug>=3.1.0 (from flask>=3.0->-r /opt/result-portal/requirements.txt (line 1))
+  Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+Downloading gunicorn-27.0.1-py3-none-any.whl (263 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+Installing collected packages: markupsafe, itsdangerous, gunicorn, click, blinker, werkzeug, jinja2, flask
+
+Successfully installed blinker-1.9.0 click-8.5.1 flask-3.1.3 gunicorn-27.0.1 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 werkzeug-3.1.9
+Created symlink '/etc/systemd/system/multi-user.target.wants/result-portal.service' → '/etc/systemd/system/result-portal.service'.
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Synchronizing state of nginx.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable nginx
+Synchronizing state of ssh.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable ssh
+Created symlink '/etc/systemd/system/sshd.service' → '/usr/lib/systemd/system/ssh.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/ssh.service' → '/usr/lib/systemd/system/ssh.service'.
+Default incoming policy changed to 'deny'
+(be sure to update your rules accordingly)
+Default outgoing policy changed to 'allow'
+(be sure to update your rules accordingly)
+Rules updated
+Rules updated (v6)
+Rules updated
+Rules updated (v6)
+Rules updated
+Rules updated (v6)
+Firewall is active and enabled on system startup
+B1.3 setup finished

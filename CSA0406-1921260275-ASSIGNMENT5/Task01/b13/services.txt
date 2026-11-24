@@ -1,0 +1,20 @@
+● result-portal.service - Result Portal (Flask app served by gunicorn)
+     Loaded: loaded (/etc/systemd/system/result-portal.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-24 12:16:47 UTC; 37s ago
+ Invocation: 1bd207efe60c4b81981cb26695af1a56
+   Main PID: 3089 (gunicorn)
+      Tasks: 4 (limit: 10716)
+     Memory: 58.9M (peak: 59.3M)
+        CPU: 299ms
+     CGroup: /system.slice/result-portal.service
+             ├─3089 /opt/result-portal/venv/bin/python3 /opt/result-portal/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+             ├─3135 /opt/result-portal/venv/bin/python3 /opt/result-portal/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+             └─3136 /opt/result-portal/venv/bin/python3 /opt/result-portal/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2026-11-24 12:16:36 UTC; 48s ago
+ Invocation: d56421b701c24c95b88daea04a9e7a8b
+       Docs: man:nginx(8)
+   Main PID: 2869 (nginx)
+      Tasks: 9 (limit: 10716)
+     Memory: 7.6M (peak: 18.3M)

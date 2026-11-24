@@ -1,0 +1,4 @@
+Main PID before: 3089
+Main PID after: 3738
+state: active
+{"host":"lol","status":"ok"}

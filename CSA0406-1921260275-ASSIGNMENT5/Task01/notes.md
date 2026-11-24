@@ -59,3 +59,24 @@ cron:
  - Nothing was listening on port 22, 80 or 443, so this is the baseline before Nginx and SSH are set up in B1.3.
  - The Process column was empty because I ran ss without sudo; [T] seeing the owner of a socket needs root.
  - Columns: Netid = protocol, State = LISTEN (waiting for connections) or UNCONN (UDP has no connection), Recv-Q/Send-Q = queued bytes or backlog, Local Address:Port = where it listens. 127.0.0.1 means reachable only from this machine.
+
+## B1.3 Services and network [M]
+Setup: b13/b13_setup.sh finished with exit code 0. Installed nginx 1.28.3, ufw, openssh-server; Flask 3.1.3 and gunicorn 27.0.1 in a virtualenv at /opt/result-portal/venv.
+
+What was built:
+ - A system user "portal" with no login shell runs the app (least privilege: if the app is hacked it is not root).
+ - systemd unit result-portal.service: gunicorn with 2 workers on 127.0.0.1:8000, Restart=always, RestartSec=1, NoNewPrivileges, PrivateTmp.
+ - Nginx is the reverse proxy on port 80: it receives the visitor's request and forwards it to gunicorn on 127.0.0.1:8000, adding Host, X-Real-IP and X-Forwarded-For headers. nginx -t reported "syntax is ok" and "test is successful".
+ - ufw: default deny incoming, default allow outgoing, allowed 22/tcp, 80/tcp, 443/tcp (each added for IPv4 and IPv6). "Firewall is active and enabled on system startup". Full table in b13/ufw_status.txt.
+
+Evidence:
+ - systemctl status: result-portal active (running), enabled; main PID 3089 (gunicorn master) plus 2 workers (PIDs 3135, 3136); memory 58.9M (peak 59.3M). nginx active (running), main PID 2869, memory 7.6M (peak 18.3M).
+ - Through Nginx on port 80: /health gave 200 and {"host":"lol","status":"ok"}; / gave "University Result Portal (demo)"; /result/1921260275 gave 200 with demo marks; /result/abc gave 400 (error: register number must be 10 digits); /nope gave 404. Response header "Server: nginx/1.28.3 (Ubuntu)" shows the request went through Nginx.
+ - Nginx access log status counts after these 5 requests: 3 x 200, 1 x 400, 1 x 404. Same awk/sort/uniq idea as logsummary.sh, but on the real log where the status is field 9 (Nginx logs the request line as 3 fields).
+ - ss -tulpn (as root) now shows: sshd on 0.0.0.0:22 and [::]:22; nginx on 0.0.0.0:80 (1 master + 8 workers, one per CPU); gunicorn only on 127.0.0.1:8000 (not reachable from outside, only Nginx can reach it); containerd on 127.0.0.1:34927. Before B1.3 nothing listened on 22 or 80, so this is the before/after change.
+ - Failure test: I killed the gunicorn master with kill -9. Main PID changed from 3089 to 3738 within the 3 second wait, state "active", and /health returned status ok. systemd restarted it because of Restart=always.
+
+Honest limits:
+ - Nothing listens on port 443: no TLS certificate was configured, so the HTTPS rule only opens the port. In production I would add a certificate (for example Let's Encrypt) to Nginx.
+ - The firewall rules were not tested from another machine. Traffic from this machine to itself uses the loopback interface, which ufw does not block, so a blocked port cannot be demonstrated here. What I can show is the active rules and that only 22 and 80 (and local-only services) are listening.
+ - The app is a demo with hash-derived marks, not real student data.
