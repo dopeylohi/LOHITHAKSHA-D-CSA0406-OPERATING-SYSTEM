@@ -1,0 +1,19 @@
+IMAGE          CREATED          CREATED BY                                      SIZE      COMMENT
+5a6ca19aa44c   3 minutes ago    /bin/sh -c #(nop)  CMD ["gunicorn" "--bind" …   0B        
+13fbb19b4b06   3 minutes ago    /bin/sh -c #(nop)  EXPOSE 8000                  0B        
+d831ad24121c   4 minutes ago    /bin/sh -c #(nop)  USER portal                  0B        
+67a182c130b9   4 minutes ago    /bin/sh -c #(nop) COPY --chown=portal:portal…   12.3kB    
+61794c5e34b1   4 minutes ago    /bin/sh -c useradd --system --create-home --…   61.4kB    
+cf0ba8086404   4 minutes ago    /bin/sh -c pip install --no-cache-dir -r req…   17.8MB    
+232af4c213ad   10 minutes ago   /bin/sh -c #(nop) COPY file:66aa848b30c7e064…   12.3kB    
+737b7a4f268e   9 days ago       /bin/sh -c #(nop) WORKDIR /app                  8.19kB    
+5e2bdb1b0d54   2 weeks ago      CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago      RUN /bin/sh -c set -eux;  for src in idle3 p…   16.4kB    buildkit.dockerfile.v0
+<missing>      2 weeks ago      RUN /bin/sh -c set -eux;   savedAptMark="$(a…   41.4MB    buildkit.dockerfile.v0
+<missing>      2 weeks ago      ENV PYTHON_SHA256=b5796915dc45ff745cfb4e990a…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago      ENV PYTHON_VERSION=3.12.16                      0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago      ENV GPG_KEY=7169605F62C751356D054A26A821E680…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago      RUN /bin/sh -c set -eux;  apt-get update;  a…   4.93MB    buildkit.dockerfile.v0
+<missing>      2 weeks ago      ENV LANG=C.UTF-8                                0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago      ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      2 weeks ago      # debian.sh --arch 'amd64' out/ 'trixie' '@1…   87.7MB    debuerreotype 0.17

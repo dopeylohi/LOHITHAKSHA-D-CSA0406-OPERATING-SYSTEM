@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: portal
+      POSTGRES_PASSWORD: demo_only_password
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+  portal:
+    build:
+      context: .
+      network: host
+    image: result-portal
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: db
+    depends_on:
+      - db
+volumes:
+  dbdata:

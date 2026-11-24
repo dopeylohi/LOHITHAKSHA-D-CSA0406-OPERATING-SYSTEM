@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE           COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+1a74dd642550   result-portal   "gunicorn --bind 0.0…"   4 seconds ago   Up 3 seconds   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   portal
+University Result Portal (demo)
+{"host":"1a74dd642550","status":"ok"}

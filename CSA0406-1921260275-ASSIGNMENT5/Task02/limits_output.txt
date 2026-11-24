@@ -1,0 +1,20 @@
+=== unlimited: docker run flags:  ===
+NanoCpus=0 Memory=0
+run 1: 1297.01 req/s (failed requests: 0)
+run 2: 1264.05 req/s (failed requests: 0)
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT    MEM %     NET I/O         BLOCK I/O   PIDS
+5c712efd69d2   portal-test   78.87%    40.38MiB / 8.73GiB   0.45%     32MB / 39.7MB   0B / 0B     3
+run 3: 1270.45 req/s (failed requests: 0)
+run 4: 1375.10 req/s (failed requests: 0)
+run 5: 1295.90 req/s (failed requests: 0)
+median: 1295.90 req/s
+=== limited: docker run flags: --cpus 0.5 --memory 128m ===
+NanoCpus=500000000 Memory=134217728
+run 1: 792.55 req/s (failed requests: 0)
+run 2: 668.96 req/s (failed requests: 0)
+CONTAINER ID   NAME          CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O   PIDS
+a9c75d31020a   portal-test   49.69%    40.57MiB / 128MiB   31.70%    31.1MB / 38.6MB   0B / 0B     3
+run 3: 662.51 req/s (failed requests: 0)
+run 4: 726.46 req/s (failed requests: 0)
+run 5: 853.13 req/s (failed requests: 0)
+median: 726.46 req/s

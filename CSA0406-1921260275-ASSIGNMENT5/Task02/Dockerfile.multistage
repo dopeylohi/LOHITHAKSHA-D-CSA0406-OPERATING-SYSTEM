@@ -1,0 +1,14 @@
+# Multi-stage variant: dependencies are built in a builder stage, only the result is copied.
+FROM python:3.12-slim AS builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+FROM python:3.12-slim
+WORKDIR /app
+COPY --from=builder /install /usr/local
+RUN useradd --system --create-home --shell /usr/sbin/nologin portal
+COPY --chown=portal:portal app.py .
+USER portal
+EXPOSE 8000
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]

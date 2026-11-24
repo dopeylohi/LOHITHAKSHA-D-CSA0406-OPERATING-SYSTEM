@@ -1,0 +1,11 @@
+# Baseline for the Alternative Concept: full Ubuntu base image instead of python slim.
+FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y python3 python3-venv && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY requirements.txt .
+RUN python3 -m venv /opt/venv && /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
+RUN useradd --system --create-home --shell /usr/sbin/nologin portal
+COPY --chown=portal:portal app.py .
+USER portal
+EXPOSE 8000
+CMD ["/opt/venv/bin/gunicorn", "--bind", "0.0.0.0:8000", "app:app"]

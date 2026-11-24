@@ -1,0 +1,22 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon   16.9kB
+Step 1/9 : FROM python:3.12-slim
+ ---> 5e2bdb1b0d54
+Step 2/9 : WORKDIR /app
+ ---> Using cache
+ ---> 737b7a4f268e
+Step 3/9 : COPY requirements.txt .
+ ---> 232af4c213ad
+Step 4/9 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Running in 5115d32c0daf
+[91mWARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7d5d5879b350>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/flask/
+[0m[91mWARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7d5d58f2cda0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/flask/
+[0m[91mWARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7d5d5841be90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/flask/
+[0m[91mWARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7d5d586f0e30>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/flask/
+[0m[91mWARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7d5d586f0d40>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/flask/
+[0m[91mERROR: Could not find a version that satisfies the requirement flask>=3.0 (from versions: none)
+[0m[91mERROR: No matching distribution found for flask>=3.0
+[0mThe command '/bin/sh -c pip install --no-cache-dir -r requirements.txt' returned a non-zero code: 1

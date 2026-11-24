@@ -1,0 +1,4 @@
+portal
+WARNING: This output is designed for human readability. For machine-readable output, please use --format.
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+result-portal:latest   5a6ca19aa44c        201MB           49MB   U    
