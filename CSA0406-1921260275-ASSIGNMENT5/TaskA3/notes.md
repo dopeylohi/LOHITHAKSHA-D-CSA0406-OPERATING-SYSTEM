@@ -23,3 +23,8 @@ Verdict: use VMs where strong isolation or another OS matters (the database, exa
  - Memory used by the host OS: a type-2 setup needs a full desktop-grade host OS (and its services) in addition to the VMs; KVM on a minimal Linux server keeps that small.
  - Suitability for production: type-2 is meant for desktops; it has no clustering, live migration or good management tools, and its availability depends on a general-purpose host. Type-1 is the right choice for the portal.
  - Complexity: memory for n VMs is O(n x M_guest) for both; a type-2 host adds a fixed extra O(M_host_os).
+ Pseudocode (host memory for n VMs):
+   ALGORITHM HostMemory(n, guestOsMemory, hostOsMemory, hypervisorType)
+     total <- n x guestOsMemory
+     IF hypervisorType = Type2 THEN total <- total + hostOsMemory END IF
+     RETURN total

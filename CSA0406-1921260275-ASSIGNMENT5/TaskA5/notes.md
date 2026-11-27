@@ -29,3 +29,7 @@ Using my capacity estimate (Task04, realistic case: 41 CPUs at peak [C]) and an 
  - Response time on result day: fixed VMs respond well as long as my load estimate was right, but cannot grow if it was too low (a new VM needs about 14 s to boot [M] plus provisioning time). The autoscaler adds pods within seconds [M], as long as the cluster has spare nodes.
  - Complexity: fixed capacity costs O(peak x 365 days); autoscaled cost is O(average load over time).
  The prices are assumptions [A], so the ratio is the point (about 1,460 to 1), not the exact dollars.
+ Pseudocode (autoscaler decision):
+   ALGORITHM Autoscale(current, metric, target, minReplicas, maxReplicas)
+     desired <- CEIL(current x metric / target)
+     RETURN MAX(minReplicas, MIN(maxReplicas, desired))

@@ -1,0 +1,23 @@
+services:
+  portal:
+    image: result-portal
+    ports:
+      - "8000:8000"
+    cpus: 0.5
+    mem_limit: 256m
+  lms:
+    image: nginx:alpine
+    ports:
+      - "8090:80"
+    cpus: 0.25
+    mem_limit: 128m
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: demo_only_password
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    cpus: 0.5
+    mem_limit: 256m
+volumes:
+  dbdata:

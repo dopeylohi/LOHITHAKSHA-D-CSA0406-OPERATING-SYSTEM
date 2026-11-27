@@ -92,3 +92,13 @@ Honest limits:
  - Database on its own server: designed; in B1.3 the portal has no database. The database appeared in Task02 (Compose) as a separate container with a volume.
  - Automation: the disk alert and log summary scripts and their cron lines were built as designed. Nightly backup, logrotate and certificate renewal were designed only.
  Reason for the changes: the build ran on one WSL2 machine for a few days, so anything that needs several machines, a subnet or a public certificate stays at design level.
+
+## Alternative concept: a central log system (journald + log server, or ELK) instead of a script on each server
+ - What changes: every server ships its logs (journald forwarding, or an agent such as Filebeat) to one server that indexes them, so I search once in one place instead of running the script on each server. I did not build a central system, so the points below are reasoning and estimates, not measurements.
+ - Time to find an error across 10 servers [A]: with scripts, log in and run awk/grep, about 10 s per server, one after another 10 x 10 = 100 s (about 10 s plus set-up if run in parallel from one control machine). Central system: one query, about 2 s, after a short indexing delay [T].
+ - Extra storage and memory [T]: an index is often about as large as the raw logs again [A: +1 times the raw size]; Elasticsearch needs several GB of RAM for its JVM heap; journald forwarding to a plain log server needs much less. My scripts needed no extra daemon [M: logsummary.sh is only a shell run by cron].
+ - Set-up effort [A]: scripts and cron took minutes per server [M: built in one session]; ELK needs hours to days to install, secure, size and maintain; journald plus a log server about an hour.
+ - Pseudocode:
+   Scripts:  FOR EACH server IN servers DO  connect to server; count <- run logsummary on server; PRINT server, count  END FOR
+   Central:  results <- index.search(query); PRINT results
+ - Complexity: n servers with L log lines each: scripts do O(n x L) work (O(L) wall time if the n servers run in parallel); a central index finds a term in about O(log(n x L)) [T] but pays O(n x L) storage and indexing work up front.

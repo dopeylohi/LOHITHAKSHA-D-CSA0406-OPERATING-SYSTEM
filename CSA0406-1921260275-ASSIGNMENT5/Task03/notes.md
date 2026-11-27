@@ -48,3 +48,10 @@ Caveats (honest):
  - Recovery from a failed container: a restart policy (restart: always) restarts it on the same server [T]; I did not measure it. Recovery from a failed SERVER: nothing moves the containers to another machine, so the portal is down. Kubernetes on several nodes reschedules the pods on other nodes [T]; I measured pod recovery only (median 1.9 s), on a single-node kind cluster, so I did not demonstrate node failure.
  - Resources: Compose needs no control plane, so less overhead; Kubernetes adds control-plane components I did not measure.
  - Maximum load: Compose is limited to one machine's CPUs; Kubernetes adds nodes. Throughput of n pods is about n x r until the CPUs are used up. Measured: 3 pods 1342.66, 6 pods 2277.44 req/s on one 8-CPU machine [M]. Compose capacity is O(C) for C cores of one host, Kubernetes is O(N x C) for N nodes [C].
+ Pseudocode (what Kubernetes does that Compose does not):
+   LOOP FOREVER
+     desired <- 3; ready <- number of pods that are Running and Ready
+     IF ready < desired THEN create (desired - ready) new pods on any node with free capacity END IF
+     IF ready > desired THEN delete (ready - desired) pods END IF
+   END LOOP
+ Compose with restart: always only restarts a stopped container on the same server; it has no loop that places pods on other nodes.

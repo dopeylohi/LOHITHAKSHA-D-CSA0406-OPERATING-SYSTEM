@@ -1,0 +1,46 @@
+ Network task04_default  Creating
+ Network task04_default  Created
+ Container task04-db-1  Creating
+ Container task04-portal-1  Creating
+ Container task04-lms-1  Creating
+ Container task04-portal-1  Created
+ Container task04-lms-1  Created
+ Container task04-db-1  Created
+ Container task04-db-1  Starting
+ Container task04-portal-1  Starting
+ Container task04-lms-1  Starting
+ Container task04-lms-1  Started
+ Container task04-db-1  Started
+ Container task04-portal-1  Started
+--- docker compose ps
+NAME              IMAGE                COMMAND                  SERVICE   CREATED         STATUS         PORTS
+task04-db-1       postgres:16-alpine   "docker-entrypoint.s…"   db        9 seconds ago   Up 8 seconds   5432/tcp
+task04-lms-1      nginx:alpine         "/docker-entrypoint.…"   lms       9 seconds ago   Up 8 seconds   0.0.0.0:8090->80/tcp, [::]:8090->80/tcp
+task04-portal-1   result-portal        "gunicorn --bind 0.0…"   portal    9 seconds ago   Up 8 seconds   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+--- both services answer
+{"host":"8fb338eeb24d","status":"ok"}
+
+HTTP/1.1 200 OK
+--- limits set on each container
+/task04-db-1 NanoCpus=500000000 Memory=268435456
+/task04-lms-1 NanoCpus=250000000 Memory=134217728
+/task04-portal-1 NanoCpus=500000000 Memory=268435456
+--- docker stats while the portal is under load (lms and db idle)
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O         PIDS
+fd7325d3070d   task04-db-1       0.03%     20.55MiB / 256MiB   8.03%     1.87kB / 126B   32.7MB / 41kB     6
+933c2b74e619   task04-lms-1      0.00%     9.633MiB / 128MiB   7.53%     2.43kB / 721B   10.5MB / 8.19kB   9
+8fb338eeb24d   task04-portal-1   50.76%    41.77MiB / 256MiB   16.32%    2MB / 2.48MB    31.2MB / 0B       3
+ Container task04-lms-1  Stopping
+ Container task04-portal-1  Stopping
+ Container task04-db-1  Stopping
+ Container task04-db-1  Stopped
+ Container task04-db-1  Removing
+ Container task04-db-1  Removed
+ Container task04-lms-1  Stopped
+ Container task04-lms-1  Removing
+ Container task04-lms-1  Removed
+ Container task04-portal-1  Stopped
+ Container task04-portal-1  Removing
+ Container task04-portal-1  Removed
+ Network task04_default  Removing
+ Network task04_default  Removed

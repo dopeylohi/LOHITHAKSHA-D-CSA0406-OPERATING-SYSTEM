@@ -37,3 +37,6 @@ Page cache and swapping:
  - Time to automate administration: both can be scripted (bash and cron on Linux; PowerShell and Task Scheduler on Windows). I did not build the Windows version, so I give no time measurement. Linux needs only shell tools that are already installed; Windows needs PowerShell skill.
  - Licence cost per server: Linux has no per-server licence fee (support is optional). Windows Server is licensed per core, with extra client access licences [T]. I did not look up prices, so I give no figure.
  - Complexity: with n servers, licence cost grows as O(n) for Windows and stays O(1) per server (zero) for Linux; script effort per server is the same order O(n) unless a configuration tool is used (see A2).
+ Pseudocode (cost of n servers):
+   ALGORITHM TotalLicenceCost(os, n, licencePerServer)
+     IF os = Windows THEN RETURN n x licencePerServer ELSE RETURN 0 END IF

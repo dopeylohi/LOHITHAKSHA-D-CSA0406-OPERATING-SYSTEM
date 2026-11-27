@@ -21,3 +21,6 @@ Decision for the portal: run the stateless portal web tier in containers (fast s
  - Memory per instance: each VM carries a whole guest OS [M: 553 MiB for one VM] while containers share the host kernel [M: 38MiB]. For n instances: VMs O(n x M_guest), containers O(M_kernel + n x M_app).
  - Isolation: VMs are stronger, because an attacker must break out of the hypervisor instead of the shared kernel.
  - Outcome: two VMs would work and be safer, but would cost about 14 times the memory per instance [C: 553 / 38 = 14.6] and be much slower to scale on result day.
+ Pseudocode (memory for n instances):
+   ALGORITHM MemoryNeeded(n, mode, guestOs, app, kernel)
+     IF mode = VM THEN RETURN n x (guestOs + app) ELSE RETURN kernel + n x app END IF
