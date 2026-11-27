@@ -1,0 +1,15 @@
+deployment.apps/result-portal created
+service/result-portal created
+service/result-portal-np created
+Waiting for deployment "result-portal" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment "result-portal" rollout to finish: 1 of 3 updated replicas are available...
+Waiting for deployment "result-portal" rollout to finish: 2 of 3 updated replicas are available...
+deployment "result-portal" successfully rolled out
+NAME                             READY   STATUS    RESTARTS   AGE   IP           NODE                   NOMINATED NODE   READINESS GATES
+result-portal-86c9577d7f-2bjrv   1/1     Running   0          11s   10.244.0.7   portal-control-plane   <none>           <none>
+result-portal-86c9577d7f-8n2bw   1/1     Running   0          11s   10.244.0.5   portal-control-plane   <none>           <none>
+result-portal-86c9577d7f-tzdfk   1/1     Running   0          11s   10.244.0.6   portal-control-plane   <none>           <none>
+NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+kubernetes         ClusterIP      10.96.0.1       <none>        443/TCP        2m18s
+result-portal      LoadBalancer   10.96.169.70    <pending>     80:31000/TCP   11s
+result-portal-np   NodePort       10.96.103.105   <none>        80:30080/TCP   11s

@@ -1,0 +1,12 @@
+deleting result-portal-86c9577d7f-2bjrv
+pod "result-portal-86c9577d7f-2bjrv" deleted from default namespace
+NAME                             READY   STATUS              RESTARTS   AGE
+result-portal-86c9577d7f-2bjrv   1/1     Terminating         0          103s
+result-portal-86c9577d7f-7zgz9   0/1     ContainerCreating   0          0s
+result-portal-86c9577d7f-8n2bw   1/1     Running             0          103s
+result-portal-86c9577d7f-tzdfk   1/1     Running             0          103s
+--- 8 s later
+NAME                             READY   STATUS    RESTARTS   AGE
+result-portal-86c9577d7f-7zgz9   0/1     Running   0          8s
+result-portal-86c9577d7f-8n2bw   1/1     Running   0          111s
+result-portal-86c9577d7f-tzdfk   1/1     Running   0          111s

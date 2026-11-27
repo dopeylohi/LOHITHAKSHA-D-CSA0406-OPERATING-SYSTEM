@@ -1,0 +1,46 @@
+# Kubernetes Deployment and Service for the result portal.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-portal
+spec:
+  # TODO 1: Run 3 replicas, and select the pods that carry the label app: result-portal
+  replicas: 3
+  selector:
+    matchLabels:
+      app: result-portal
+  template:
+    metadata:
+      labels:
+        app: result-portal
+    spec:
+      containers:
+        - name: portal
+          image: simats/result-portal:1.0
+          ports:
+            - containerPort: 8000
+          # TODO 2: Request 250m CPU and 256Mi memory, and limit the container to 500m
+          #   CPU and 512Mi memory
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: result-portal
+spec:
+  type: LoadBalancer
+  selector:
+    app: result-portal
+  ports:
+    - port: 80
+      targetPort: 8000

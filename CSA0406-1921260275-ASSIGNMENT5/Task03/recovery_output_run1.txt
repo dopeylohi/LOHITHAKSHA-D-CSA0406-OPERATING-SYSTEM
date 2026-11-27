@@ -1,0 +1,6 @@
+run 1: deleted result-portal-86c9577d7f-7zgz9, 3 ready pods again after 11.0 s
+run 2: deleted result-portal-86c9577d7f-8n2bw, 3 ready pods again after 1.8 s
+run 3: deleted result-portal-86c9577d7f-ctvnq, 3 ready pods again after 1.8 s
+run 4: deleted result-portal-86c9577d7f-ctvnq, 3 ready pods again after 0.3 s
+run 5: deleted result-portal-86c9577d7f-q2fk9, 3 ready pods again after 1.8 s
+median recovery: 1.8 s

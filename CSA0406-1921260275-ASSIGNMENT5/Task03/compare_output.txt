@@ -1,0 +1,46 @@
+=== bare ===
+start-up 1: 0.56 s
+start-up 2: 0.28 s
+start-up 3: 0.21 s
+start-up 4: 0.19 s
+start-up 5: 0.21 s
+start-up median: 0.21 s
+memory: 62.1 MiB (sum of RSS of 2 gunicorn processes)
+load run 1: 1713.64 req/s
+load run 2: 1761.49 req/s
+load run 3: 1530.69 req/s
+load run 4: 1649.55 req/s
+load run 5: 1573.48 req/s
+requests/second median: 1649.55
+=== container ===
+start-up 1: 1.00 s
+start-up 2: 0.82 s
+start-up 3: 0.77 s
+start-up 4: 0.68 s
+start-up 5: 0.69 s
+start-up median: 0.77 s
+memory: 38MiB / 8.73GiB
+load run 1: 874.94 req/s
+load run 2: 970.11 req/s
+load run 3: 933.03 req/s
+load run 4: 938.81 req/s
+load run 5: 928.12 req/s
+requests/second median: 933.03
+=== vm ===
+start-up 1: 15.43 s
+start-up 2: 14.18 s
+start-up 3: 15.51 s
+start-up 4: 13.48 s
+start-up 5: 13.91 s
+start-up median: 14.18 s
+memory: 553 MiB (RSS of the QEMU process on the host; guest configured with 1024 MiB)
+load run 1: 1663.33 req/s
+load run 2:  req/s
+load run 3: 793.16 req/s
+load run 4: 514.91 req/s
+load run 5:  req/s
+requests/second median: 514.91
+=== disk sizes ===
+bare metal: Python packages in the virtualenv = 22 MiB (the OS python3 itself is shared)
+593M	/home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT5/Task03/vm/base.img
+610M	/home/lohi/LOHITHAKSHA-D-CSA0406-OPERATING-SYSTEM/CSA0406-1921260275-ASSIGNMENT5/Task03/vm/vm.qcow2

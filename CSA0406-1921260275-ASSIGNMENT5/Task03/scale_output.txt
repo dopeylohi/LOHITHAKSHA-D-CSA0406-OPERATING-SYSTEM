@@ -1,0 +1,29 @@
+== 3 replicas
+pods: 3
+run 1: 1342.66 req/s
+run 2: 1596.14 req/s
+run 3: 1236.74 req/s
+run 4: 1299.65 req/s
+run 5: 1430.49 req/s
+median: 1342.66 req/s
+== scaling to 6 while a long load run is in progress
+deployment.apps/result-portal scaled
+Waiting for deployment "result-portal" rollout to finish: 3 of 6 updated replicas are available...
+Waiting for deployment "result-portal" rollout to finish: 4 of 6 updated replicas are available...
+Waiting for deployment "result-portal" rollout to finish: 5 of 6 updated replicas are available...
+deployment "result-portal" successfully rolled out
+NAME                             READY   STATUS    RESTARTS   AGE
+result-portal-86c9577d7f-2fg74   1/1     Running   0          6m48s
+result-portal-86c9577d7f-bx47k   1/1     Running   0          3s
+result-portal-86c9577d7f-mfxwz   1/1     Running   0          3s
+result-portal-86c9577d7f-mwhmd   1/1     Running   0          3s
+result-portal-86c9577d7f-rbhvp   1/1     Running   0          6m51s
+result-portal-86c9577d7f-tzdfk   1/1     Running   0          9m28s
+load run during scaling: 1636.05 req/s, failed requests: 1
+== 6 replicas
+run 1: 729.48 req/s
+run 2: 2277.44 req/s
+run 3: 2669.35 req/s
+run 4: 714.17 req/s
+run 5: 2326.87 req/s
+median: 2277.44 req/s

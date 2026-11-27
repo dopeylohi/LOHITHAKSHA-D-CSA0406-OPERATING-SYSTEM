@@ -1,0 +1,14 @@
+# Test-only extra Service: kind has no cloud load balancer, so this NodePort makes the pods
+# reachable from the host on port 8081 (see kind-config.yaml) and still load-balances via kube-proxy.
+apiVersion: v1
+kind: Service
+metadata:
+  name: result-portal-np
+spec:
+  type: NodePort
+  selector:
+    app: result-portal
+  ports:
+    - port: 80
+      targetPort: 8000
+      nodePort: 30080
