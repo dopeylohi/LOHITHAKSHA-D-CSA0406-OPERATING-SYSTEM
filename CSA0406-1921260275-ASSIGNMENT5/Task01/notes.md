@@ -80,3 +80,15 @@ Honest limits:
  - Nothing listens on port 443: no TLS certificate was configured, so the HTTPS rule only opens the port. In production I would add a certificate (for example Let's Encrypt) to Nginx.
  - The firewall rules were not tested from another machine. Traffic from this machine to itself uses the loopback interface, which ufw does not block, so a blocked port cannot be demonstrated here. What I can show is the active rules and that only 22 and 80 (and local-only services) are listening.
  - The app is a demo with hash-derived marks, not real student data.
+
+## B1.4 Compare with my Part A design (A2)
+ What I designed (A2) and built (B1.3):
+ - Dedicated no-login user running the app: designed and built (user "portal").
+ - systemd service with automatic restart: designed and built; the kill -9 test showed the restart. Memory and CPU limits in the unit: designed, not built.
+ - Nginx reverse proxy on port 80 forwarding to gunicorn on 127.0.0.1: designed and built.
+ - ufw default deny with 22, 80 and 443 allowed: built as designed. Change: in the design 22 is only open to the management subnet; on my single test machine there is no separate subnet, so 22 is open to anywhere.
+ - HTTPS: designed (TLS in Nginx), not built: no certificate was installed and nothing listens on 443. I ran out of reason to fake it, so it is listed as a gap.
+ - SSH keys only: designed; I installed sshd with its default settings and did not disable password login.
+ - Database on its own server: designed; in B1.3 the portal has no database. The database appeared in Task02 (Compose) as a separate container with a volume.
+ - Automation: the disk alert and log summary scripts and their cron lines were built as designed. Nightly backup, logrotate and certificate renewal were designed only.
+ Reason for the changes: the build ran on one WSL2 machine for a few days, so anything that needs several machines, a subnet or a public certificate stays at design level.

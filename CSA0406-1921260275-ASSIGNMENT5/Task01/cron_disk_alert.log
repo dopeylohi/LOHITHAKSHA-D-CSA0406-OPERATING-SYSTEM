@@ -1,0 +1,6 @@
+2026-11-24 12:30:01 ALERT: /usr/lib/wsl/drivers (drivers) is 84% used (threshold 80%)
+2026-11-24 12:30:01 ALERT: /mnt/c (C:\) is 84% used (threshold 80%)
+2026-11-24 13:00:01 ALERT: /usr/lib/wsl/drivers (drivers) is 84% used (threshold 80%)
+2026-11-24 13:00:01 ALERT: /mnt/c (C:\) is 84% used (threshold 80%)
+2026-11-24 13:30:01 ALERT: /usr/lib/wsl/drivers (drivers) is 86% used (threshold 80%)
+2026-11-24 13:30:01 ALERT: /mnt/c (C:\) is 86% used (threshold 80%)
