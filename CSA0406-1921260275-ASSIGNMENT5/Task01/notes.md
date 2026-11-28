@@ -102,3 +102,9 @@ Honest limits:
    Scripts:  FOR EACH server IN servers DO  connect to server; count <- run logsummary on server; PRINT server, count  END FOR
    Central:  results <- index.search(query); PRINT results
  - Complexity: n servers with L log lines each: scripts do O(n x L) work (O(L) wall time if the n servers run in parallel); a central index finds a term in about O(log(n x L)) [T] but pays O(n x L) storage and indexing work up front.
+
+## B1.3 addendum: HTTPS/TLS
+Added HTTPS on port 8443 with a self-signed certificate (b13/b13_tls.sh, output in b13/tls_output.txt) [M].
+Nginx terminates TLS (TLSv1.2/1.3) and proxies to gunicorn on 127.0.0.1:8000; ufw opens 8443 [M].
+Limit: the certificate is self-signed, so browsers warn; production would use a CA-signed certificate such as Let's Encrypt [A].
+Plain HTTP on port 80 is still open, and there is no HTTP-to-HTTPS redirect yet.

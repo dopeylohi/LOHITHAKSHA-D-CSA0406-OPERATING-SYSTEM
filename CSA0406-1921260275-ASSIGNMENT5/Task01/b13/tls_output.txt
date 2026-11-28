@@ -1,0 +1,12 @@
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Rule added
+Rule added (v6)
+--- HTTPS request (curl -k, self-signed) ---
+HTTP 200 via https
+{"host":"lol","status":"ok"}
+
+--- certificate and protocol ---
+subject=C=IN, O=SIMATS, CN=result-portal.local
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Protocol: TLSv1.3
